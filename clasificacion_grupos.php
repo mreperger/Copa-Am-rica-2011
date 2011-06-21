@@ -1,38 +1,14 @@
 <?php
-	$conn_host = "localhost";
-	$conn_user = "root";
-	$conn_pass = "";
-	$conn_bd = "copa_america_2011";
+	require_once("includes/conn.php");
+	require_once("classes/equipo.class.php");
+	require_once("classes/grupo.class.php");
 	
-	function Conectarse($servidor, $usuario, $pwd, $db)
-	{
-	   if (!($link=mysql_connect($servidor,$usuario,$pwd)))
-	   {
-		  echo "Error conectando a la base de datos.";
-		  exit();
-	   }
-	   if (!mysql_select_db($db,$link))
-	   {
-		  echo "Error seleccionando la base de datos.";
-		  exit();
-	   }
-	   return $link;
-	}
-	
-	function getNombreEquipo($id,$conn){
-		$sql_equipos = "SELECT nombre FROM equipos WHERE id = '".$id."';";
-		$rsEquipos = mysql_query($sql_equipos,$conn) or die(mysql_error());
-		if($rowEquipos = mysql_fetch_assoc($rsEquipos)){
-			return $rowEquipos["nombre"];
-		}else{
-			return "ERROR!";
-		}
-	}
-	
-	$conn = Conectarse($conn_host,$conn_user,$conn_pass,$conn_bd);
+	//Cargar equipos con sus datos
+	$grupoA = new Grupo("A",$conn);
+	$grupoB = new Grupo("B",$conn);
+	$grupoC = new Grupo("C",$conn);
+	//Ordenar equipos por grupos
 ?>
-
-
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -44,6 +20,7 @@
 </head>
 
 <body>
+	<pre><? var_dump($grupoA) ?></pre>
 <div id="pagina">
 	<div id="zona_cabezal">
     	<div class="img_cabezal">

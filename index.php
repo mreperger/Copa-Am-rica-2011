@@ -63,11 +63,15 @@
             <?php while($rowPartidosA = mysql_fetch_assoc($rsPartidosA)){ ?>
             <tr>
               <td width="86" align="center"><?php echo convertString2Date($rowPartidosA["fecha"],$conn); ?></td>
-              <td width="70"><?php echo (getNombreEquipo($rowPartidosA["equipo_locatario"],$conn)); ?></td>
+              <?php 
+              	$equipo_locatario = new Equipo($rowPartidosA["equipo_locatario"], $conn);
+				$equipo_visitante = new Equipo($rowPartidosA["equipo_visitante"], $conn);
+              ?>
+              <td width="70"><?php echo $equipo_locatario->getNombre(); ?></td>
               <td width="15" align="center"><div class="resultado"><?php echo $rowPartidosA["goles_equipo_locatario"]; ?></div></td>
               <td width="15" align="center">vs</td>
               <td width="15" align="center"><div class="resultado"><?php echo $rowPartidosA["goles_equipo_visitante"]; ?></div></td>
-              <td width="70"><?php echo (getNombreEquipo($rowPartidosA["equipo_visitante"],$conn)); ?></td>
+              <td width="70"><?php echo $equipo_visitante->getNombre(); ?></td>
               <td width="141"><p1><?php echo (getNombreEstadio($rowPartidosA["id_estadio"],$conn)); ?></p1></td>
             </tr>
             <?php } ?>
@@ -83,11 +87,15 @@
             <?php while($rowPartidosB = mysql_fetch_assoc($rsPartidosB)){ ?>
             <tr>
               <td width="86" align="center"><?php echo convertString2Date($rowPartidosB["fecha"],$conn); ?></td>
-              <td width="70"><?php echo (getNombreEquipo($rowPartidosB["equipo_locatario"],$conn)); ?></td>
+              <?php 
+              	$equipo_locatario = new Equipo($rowPartidosB["equipo_locatario"], $conn);
+				$equipo_visitante = new Equipo($rowPartidosB["equipo_visitante"], $conn);
+              ?>
+              <td width="70"><?php echo $equipo_locatario->getNombre(); ?></td>
               <td width="15" align="center"><div class="resultado"><?php echo $rowPartidosB["goles_equipo_locatario"]; ?></div></td>
               <td width="15" align="center">vs</td>
               <td width="15" align="center"><div class="resultado"><?php echo $rowPartidosB["goles_equipo_visitante"]; ?></div></td>
-              <td width="70"><?php echo (getNombreEquipo($rowPartidosB["equipo_visitante"],$conn)); ?></td>
+              <td width="70"><?php echo $equipo_visitante->getNombre(); ?></td>
               <td width="141"><p1><?php echo (getNombreEstadio($rowPartidosB["id_estadio"],$conn)); ?></p1></td>
             </tr>
             <?php } ?>
@@ -103,11 +111,15 @@
             <?php while($rowPartidosC = mysql_fetch_assoc($rsPartidosC)){ ?>
             <tr>
               <td width="86" align="center"><?php echo convertString2Date($rowPartidosC["fecha"],$conn); ?></td>
-              <td width="70"><?php echo (getNombreEquipo($rowPartidosC["equipo_locatario"],$conn)); ?></td>
+              <?php 
+              	$equipo_locatario = new Equipo($rowPartidosC["equipo_locatario"], $conn);
+				$equipo_visitante = new Equipo($rowPartidosC["equipo_visitante"], $conn);
+              ?>
+              <td width="70"><?php echo $equipo_locatario->getNombre(); ?></td>
               <td width="15" align="center"><div class="resultado"><?php echo $rowPartidosC["goles_equipo_locatario"]; ?></div></td>
               <td width="15" align="center">vs</td>
               <td width="15" align="center"><div class="resultado"><?php echo $rowPartidosC["goles_equipo_visitante"]; ?></div></td>
-              <td width="70"><?php echo (getNombreEquipo($rowPartidosC["equipo_visitante"],$conn)); ?></td>
+              <td width="70"><?php echo $equipo_visitante->getNombre(); ?></td>
               <td width="141"><p1><?php echo (getNombreEstadio($rowPartidosC["id_estadio"],$conn)); ?></p1></td>
             </tr>
             <?php } ?>
