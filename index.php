@@ -1,34 +1,8 @@
 <?php
-	$conn_host = "localhost";
-	$conn_user = "root";
-	$conn_pass = "";
-	$conn_bd = "copa_america_2011";
-
-	function Conectarse($servidor, $usuario, $pwd, $db)
-	{
-	   if (!($link=mysql_connect($servidor,$usuario,$pwd)))
-	   {
-		  echo "Error conectando a la base de datos.";
-		  exit();
-	   }
-	   if (!mysql_select_db($db,$link))
-	   {
-		  echo "Error seleccionando la base de datos.";
-		  exit();
-	   }
-	   return $link;
-	}
-
-	function getNombreEquipo($id,$conn){
-		$sql_equipos = "SELECT nombre FROM equipos WHERE id = '".$id."';";
-		$rsEquipos = mysql_query($sql_equipos,$conn) or die(mysql_error());
-		if($rowEquipos = mysql_fetch_assoc($rsEquipos)){
-			return $rowEquipos["nombre"];
-		}else{
-			return "ERROR!";
-		}
-	}
 	
+	require_once("includes/conn.php");
+	require_once("classes/equipo.class.php");
+
 	function getNombreEstadio($id,$conn){
 		$sql_equipos = "SELECT nombre FROM estadios WHERE id = '".$id."';";
 		$rsEquipos = mysql_query($sql_equipos,$conn) or die(mysql_error());
@@ -52,9 +26,6 @@
 		$fecha_formateada = $hora.":".$minutos." - ".$dia."/".$mes;
 		return $fecha_formateada; 
 	}
-
-	$conn = Conectarse($conn_host,$conn_user,$conn_pass,$conn_bd);
-
 
 ?>
 
