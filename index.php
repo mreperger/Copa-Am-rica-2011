@@ -119,7 +119,7 @@
             <table>
               <tr>
                 <td width="86" align="center">16:00 - 16/07</td>
-                <td width="89">1ºGrupo A</td>
+                <td width="89">1ro Grupo A</td>
                 <td width="17" align="center"></td>
                 <td width="17" align="center">vs</td>
                 <td width="17"></td>
@@ -129,31 +129,31 @@
               </tr>
               <tr>
                 <td width="86" align="center">19:15 - 16/07</td>
-                <td width="89">2ºGrupo A</td>
+                <td width="89">2do Grupo A</td>
                 <td width="17" align="center"></td>
                 <td width="17" align="center">vs</td>
                 <td width="17"></td>
-                <td width="114">2ºGrupo C</td>
-                <td width="69"><p1>Santa Fé</p1></td>
+                <td width="114">2do Grupo C</td>
+                <td width="69"><p1>Santa F&eacute;</p1></td>
                 <td>S2</td>
               </tr>
               <tr>
                 <td width="86" align="center">16:00 - 17/07</td>
-                <td width="89">1ºGrupo B</td>
+                <td width="89">1ro Grupo B</td>
                 <td width="17" align="center"></td>
                 <td width="17" align="center">vs</td>
                 <td width="17" align="center"></td>
-                <td width="114">2ºMejor Tercero</td>
+                <td width="114">2do Mejor Tercero</td>
                 <td width="69"><p1>La Plata</p1></td>
                 <td>S3</td>
               </tr>
               <tr>
                 <td width="86" align="center">19:15 - 17/07</td>
-                <td width="89">1ºGrupo C</td>
+                <td width="89">1ro Grupo C</td>
                 <td width="17" align="center"></td>
                 <td width="17" align="center">vs</td>
                 <td width="17" align="center"></td>
-                <td width="114">2ºGrupo B</td>
+                <td width="114">2do Grupo B</td>
                 <td width="69"><p1>San Juan</p1></td>
                 <td>S4</td>
               </tr>

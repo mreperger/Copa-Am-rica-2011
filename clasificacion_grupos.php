@@ -203,7 +203,7 @@
                         <td align="center">0</td>
                     </tr>
                     <tr>
-                        <td>México</td>
+                        <td>Mï¿½xico</td>
                         <td align="center">0</td>
                         <td align="center">0</td>
                         <td align="center">0</td>
@@ -214,7 +214,7 @@
                         <td align="center">0</td>
                     </tr>
                     <tr>
-                        <td>Perú</td>
+                        <td>Perï¿½</td>
                         <td align="center">0</td>
                         <td align="center">0</td>
                         <td align="center">0</td>

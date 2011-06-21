@@ -61,12 +61,12 @@
                         <td><input type="text" name="log_usuario" /></td>
                     </tr>
                     <tr>
-                        <td align="right">Contraseña:</td>
+                        <td align="right">Contrase&ntilde;a:</td>
                         <td><input type="password" name="log_pass" /></td>
                     </tr>
                     <tr>
                         <td align="right"><input type="checkbox" name="no_cerrar_sesion" value="yes" /></td>
-                        <td>No cerrar sesión</td>
+                        <td>No cerrar sesi&oacute;n</td>
                     </tr>
                     <tr>
                         <td></td>
@@ -74,7 +74,7 @@
                     </tr>
                     <tr>
                     	<td></td>
-                        <td><a href=""><p1>¿Has olvidado tu contraseña?</p1></a></td>
+                        <td><a href=""><p1>Has olvidado tu contrase&ntilde;a?</p1></a></td>
                     </tr>
                 </table>
                 
@@ -91,19 +91,19 @@
             <td width="198"><input type="text" name="sign_usuario" /></td>
                   </tr>
                     <tr>
-                        <td align="right">Contraseña:</td>
+                        <td align="right">Contrase&ntilde;a:</td>
                         <td><input type="password" name="sign_pass" /></td>
                     </tr>
                     <tr>
-                        <td align="right">Volver a escribir contraseña:</td>
+                        <td align="right">Volver a escribir contrase&ntilde;a:</td>
                         <td><input type="password" name="sign_pass_verificar" /></td>
                     </tr>
                     <tr>
-                        <td align="right">Código:</td>
+                        <td align="right">C&oacute;digo:</td>
                         <td><input type="text" name="sign_codigo" /></td>
                     </tr>
                     <tr>
-                    	<td align="right"><a href=""><p1>He leido y acepto los términos.</p1></a></td>
+                    	<td align="right"><a href=""><p1>He leido y acepto los t&eacute;rminos.</p1></a></td>
                     	<td align="left"><input type="checkbox" name="aceptar_terminos" value="yes" /></td>
                     </tr>
                     <tr>
