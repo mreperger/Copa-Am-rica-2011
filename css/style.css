@@ -13,6 +13,9 @@ body {
 	margin-right: 30px;
 	margin-bottom: 0px;
 }
+img{
+	border:0px;
+}
 #pagina{
 	width:1024px;
 	height:768px;
