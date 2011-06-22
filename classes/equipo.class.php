@@ -108,5 +108,20 @@
 			}
 		}*/
 		
+		public function getPJ(){
+			return $this->calcPJ;
+		}
+		
+		public function getPG(){
+			return $this->calcPG;
+		}
+		
+		public function getPE(){
+			return $this->calcPE;
+		}
+		
+		public function getPP(){
+			return $this->calcPP;
+		}
 	}
 ?>
