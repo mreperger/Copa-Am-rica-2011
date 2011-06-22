@@ -86,10 +86,10 @@
 		<div class="menu_usuario">    	
             <form name="frm_sign_in" action="" method="post">
                 <table width="420">
-<tr>
+					<tr>
                         <td align="right" width="200">Correo Electronico:</td>
             			<td width="198"><input type="text" name="sign_usuario" /></td>
-                  </tr>
+                  	</tr>
                     <tr>
                         <td align="right">Contrase&ntilde;a:</td>
                         <td><input type="password" name="sign_pass" /></td>
