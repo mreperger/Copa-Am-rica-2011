@@ -20,7 +20,7 @@
 </head>
 
 <body>
-	<pre><? var_dump($grupoA) ?></pre>
+	<pre><?php echo var_dump($grupoA) ?></pre>
 <div id="pagina">
 	<div id="zona_cabezal">
     	<div class="img_cabezal">
