@@ -1,4 +1,5 @@
 <?php
+	require_once("includes/constants.php");
 	require_once("includes/conn.php");
 	require_once("classes/equipo.class.php");
 	require_once("classes/grupo.class.php");
@@ -20,7 +21,7 @@
 </head>
 
 <body>
-	<pre><?php echo var_dump($grupoA) ?></pre>
+	<?php if($DEBUG == 1){ echo "<pre>"; var_dump($grupoA); echo "</pre>"; } ?>
 <div id="pagina">
 	<div id="zona_cabezal">
     	<div class="img_cabezal">
