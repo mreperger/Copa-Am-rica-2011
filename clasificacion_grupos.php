@@ -1,4 +1,5 @@
 <?php
+	require_once("includes/constants.php");
 	require_once("includes/conn.php");
 	require_once("classes/equipo.class.php");
 	require_once("classes/grupo.class.php");
@@ -20,7 +21,7 @@
 </head>
 
 <body>
-	<pre><?php echo var_dump($grupoA) ?></pre>
+	<?php if($DEBUG == 1){ echo "<pre>"; var_dump($grupoA); echo "</pre>"; } ?>
 <div id="pagina">
 	<div id="zona_cabezal">
     	<div class="img_cabezal">
@@ -48,50 +49,23 @@
                         <td align="center">GA</td>
                         <td align="center">PTS</td>
                     </tr>
-                    <tr>
-                        <td>Argentina</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                    </tr>
-                    <tr>
-                        <td>Bolivia</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                    </tr>
-                    <tr>
-                        <td>Colombia</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                    </tr>
-                    <tr>
-                        <td>Costa Rica</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                    </tr>
+                    <?php
+                    foreach($grupoA->getEquipos() as $equipo){
+                    	?>
+                    	<tr>
+	                        <td><?php echo $equipo->getNombre(); ?></td>
+	                        <td align="center"><?php echo $equipo->getPJ(); ?></td>
+	                        <td align="center"><?php echo $equipo->getPG(); ?></td>
+	                        <td align="center"><?php echo $equipo->getPE(); ?></td>
+	                        <td align="center"><?php echo $equipo->getPP(); ?></td>
+	                        <td align="center"><?php echo $equipo->getCG(); ?></td>
+	                        <td align="center"><?php echo $equipo->getGE(); ?></td>
+	                        <td align="center"><?php echo $equipo->getGA(); ?></td>
+	                        <td align="center"><?php echo $equipo->getPTS(); ?></td>
+                    	</tr>
+                    	<?php
+                    }
+                    ?>
             </table>
 		</div>            
             <h2>Grupo B</h2>

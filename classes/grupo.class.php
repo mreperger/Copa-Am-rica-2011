@@ -20,6 +20,10 @@
 			
 			//Ordeno array segun reglas de puntos
 		}
+		
+		public function getEquipos(){
+			return $this->equipos;
+		}
 	}
 	
 ?>
