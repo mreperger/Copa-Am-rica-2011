@@ -48,23 +48,54 @@
 		public function calcResultados($conn){
 			//Calcular partidos ganados, partidos perdidos, etc
 			$this->calcPJ($conn);
-			$this->calcPG();
+			$this->calcPG($conn);
+			$this->calcPE($conn);
+			$this->calcPP($conn);
 			//Hacer todas las otras
 		}
 		
 		private function calcPJ($conn){
 			$sql_pj = "SELECT * FROM partidos WHERE (equipo_locatario = ".$this->id." OR equipo_visitante = ".$this->id.") AND estado_partido = 1;";
 			$rsPJ = mysql_query($sql_pj, $conn) or die(mysql_error());
-			$num_rows = mysql_num_rows($rsPJ);
-			if($num_rows){
-				$this->pj = $num_rows;
+			$num_rowsPJ = mysql_num_rows($rsPJ);
+			if($num_rowsPJ){
+				$this->pj = $num_rowsPJ;
 			}else{
 				$this->pj = 0;
 			}
 		}
 		
 		private function calcPG($conn){
-			//Seguir aca
+			$sql_pg = "SELECT * FROM partidos WHERE (equipo_locatario = ".$this->id." AND goles_equipo_locatario > goles_equipo_visitante AND estado_partido = 1) OR (equipo_visitante =".$this->id." AND goles_equipo_visitante > goles_equipo_locatario AND estado_partido = 1);";
+			$rsPG = mysql_query($sql_pg, $conn) or die(mysql_error());
+			$num_rowsPG = mysql_num_rows($rsPG);
+			if($num_rowsPG){
+				$this->pg = $num_rowsPG;
+			}else{
+				$this->pg = 0;
+			}
+		}
+		
+		private function calcPE($conn){
+			$sql_pe = "SELECT * FROM partidos WHERE (equipo_locatario = ".$this->id." OR equipo_visitante = ".$this->id.") AND (goles_equipo_locatario = goles_equipo_visitante) AND (estado_partido = 1);";
+			$rsPE = mysql_query($sql_pe, $conn) or die(mysql_error());
+			$num_rowsPE = mysql_num_rows($rsPE);
+			if($num_rowsPE){
+				$this->pe = $num_rowsPE;
+			}else{
+				$this->pe = 0;
+			}
+		}
+		
+		private function calcPP($conn){
+			$sql_pp = "SELECT * FROM partidos WHERE (equipo_locatario = ".$this->id." AND goles_equipo_locatario < goles_equipo_visitante AND estado_partido = 1) OR (equipo_visitante =".$this->id." AND goles_equipo_visitante < goles_equipo_locatario AND estado_partido = 1)";
+			$rsPP = mysql_query($sql_pp, $conn) or die(mysql_error());
+			$num_rowsPP = mysql_num_rows($rsPP);
+			if($num_rowsPP){
+				$this->pp = $num_rowsPP;
+			}else{
+				$this->pp = 0;
+			}
 		}
 		
 		/*function getNombreEquipo($id,$conn){
