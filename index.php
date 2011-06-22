@@ -71,7 +71,7 @@
               <td width="15" align="center"><div class="resultado"><?php echo $rowPartidosA["goles_equipo_locatario"]; ?></div></td>
               <td width="15" align="center">vs</td>
               <td width="15" align="center"><div class="resultado"><?php echo $rowPartidosA["goles_equipo_visitante"]; ?></div></td>
-              <td width="70"><?php echo $equipo_visitante->getNombre(); ?></td>
+              <td width="74"><?php echo $equipo_visitante->getNombre(); ?></td>
               <td width="141"><p1><?php echo (getNombreEstadio($rowPartidosA["id_estadio"],$conn)); ?></p1></td>
             </tr>
             <?php } ?>
@@ -95,7 +95,7 @@
               <td width="15" align="center"><div class="resultado"><?php echo $rowPartidosB["goles_equipo_locatario"]; ?></div></td>
               <td width="15" align="center">vs</td>
               <td width="15" align="center"><div class="resultado"><?php echo $rowPartidosB["goles_equipo_visitante"]; ?></div></td>
-              <td width="70"><?php echo $equipo_visitante->getNombre(); ?></td>
+              <td width="74"><?php echo $equipo_visitante->getNombre(); ?></td>
               <td width="141"><p1><?php echo (getNombreEstadio($rowPartidosB["id_estadio"],$conn)); ?></p1></td>
             </tr>
             <?php } ?>
@@ -119,7 +119,7 @@
               <td width="15" align="center"><div class="resultado"><?php echo $rowPartidosC["goles_equipo_locatario"]; ?></div></td>
               <td width="15" align="center">vs</td>
               <td width="15" align="center"><div class="resultado"><?php echo $rowPartidosC["goles_equipo_visitante"]; ?></div></td>
-              <td width="70"><?php echo $equipo_visitante->getNombre(); ?></td>
+              <td width="74"><?php echo $equipo_visitante->getNombre(); ?></td>
               <td width="141"><p1><?php echo (getNombreEstadio($rowPartidosC["id_estadio"],$conn)); ?></p1></td>
             </tr>
             <?php } ?>
