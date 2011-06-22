@@ -52,6 +52,9 @@
 			$this->calcPE($conn);
 			$this->calcPP($conn);
 			$this->calcGC($conn);
+			$this->calcGE($conn);
+			$this->calcGA($conn);
+			$this->calcPTS($conn);
 			//Hacer todas las otras
 		}
 		
@@ -104,14 +107,84 @@
 			$rsGC = mysql_query($sql_gc, $conn) or die(mysql_error());
 			$total = 0;
 			while($row_GC = mysql_fetch_array($rsGC)){
-				$GC = $total + $row_GC['goles_equipo_locatario'] + $row_GC['goles_equipo_visitante'];
+				if($row_GC["equipo_locatario"] == $this->id){
+					$total = $total + $row_GC["goles_equipo_locatario"];
+				}elseif($row_GC["equipo_visitante"] == $this->id){
+					$total = $total + $row_GC["goles_equipo_visitante"];
+				}
 			}
-			if($GC){
-				$this->gc = $GC;
+			if($total){
+				$this->gc = $total;
 			}else{
 				$this->gc = 0;
 			}
 		}
+		
+		private function calcGE($conn){
+			$sql_ge = "(SELECT * FROM partidos WHERE (equipo_locatario = ".$this->id." OR equipo_visitante = ".$this->id.") AND estado_partido = 1);";
+			$rsGE = mysql_query($sql_ge, $conn) or die(mysql_error());
+			$total = 0;
+			while($row_GE = mysql_fetch_array($rsGE)){
+				if($row_GE["equipo_locatario"] == $this->id){
+					$total = $total + $row_GE["goles_equipo_visitante"];
+				}elseif($row_GE["equipo_visitante"] == $this->id){
+					$total = $total + $row_GE["goles_equipo_locatario"];
+				}
+			}
+			if($total){
+				$this->ge = $total;
+			}else{
+				$this->ge = 0;
+			}
+		}
+		
+		private function calcGA($conn){
+			$sql_ga = "(SELECT * FROM partidos WHERE (equipo_locatario = ".$this->id." OR equipo_visitante = ".$this->id.") AND estado_partido = 1);";
+			$rsGA = mysql_query($sql_ga, $conn) or die(mysql_error());
+			$total = 0;
+			while($row_GA = mysql_fetch_array($rsGA)){
+				if($row_GA["equipo_locatario"] == $this->id){
+					$total = $total + $row_GA["goles_equipo_locatario"] - $row_GA["goles_equipo_visitante"];
+				}elseif($row_GA["equipo_visitante"] == $this->id){
+					$total = $total + $row_GA["goles_equipo_visitante"] - $row_GA["goles_equipo_locatario"];
+				}
+			}
+			if($total){
+				$this->ga = $total;
+			}else{
+				$this->ga = 0;
+			}
+		}
+		
+		private function calcPTS($conn){
+			$sql_pts = "(SELECT * FROM partidos WHERE (equipo_locatario = ".$this->id." OR equipo_visitante = ".$this->id.") AND estado_partido = 1);";
+			$rsPTS = mysql_query($sql_pts, $conn) or die(mysql_error());
+			$total = 0;
+			while($row_PTS = mysql_fetch_array($rsPTS)){
+				if($row_PTS["equipo_locatario"] == $this->id){
+					if($row_PTS["goles_equipo_locatario"] > $row_PTS["goles_equipo_visitante"]){
+						$total = $total + 3;
+					}elseif($row_PTS["goles_equipo_locatario"] = $row_PTS["goles_equipo_visitante"]){
+						$total = $total + 1;
+					}else{
+						$total = $total + 0;
+					}
+				}elseif($row_PTS["equipo_visitante"] == $this->id){
+					if($row_PTS["goles_equipo_visitante"] > $row_PTS["goles_equipo_locatario"]){
+						$total = $total + 3;
+					}elseif($row_PTS["goles_equipo_visitante"] = $row_PRS["goles_equipo_locatario"]){
+						$total = $total + 1;
+					}else{
+						$total = $total + 0;
+					}
+				}
+			}
+			if($total){
+				$this->pts = $total;
+			}else{
+				$this->pts = 0;
+			}
+		}	
 		
 		/*function getNombreEquipo($id,$conn){
 			$sql_equipos = "SELECT nombre FROM equipos WHERE id = '".$id."';";
@@ -141,6 +214,18 @@
 		
 		public function getGC(){
 			return $this->gc;
+		}
+		
+		public function getGE(){
+			return $this->ge;
+		}
+		
+		public function getGA(){
+			return $this->ga;
+		}
+		
+		public function getPTS(){
+			return $this->pts;
 		}
 	}
 ?>
