@@ -49,50 +49,23 @@
                         <td align="center">GA</td>
                         <td align="center">PTS</td>
                     </tr>
-                    <tr>
-                        <td>Argentina</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                    </tr>
-                    <tr>
-                        <td>Bolivia</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                    </tr>
-                    <tr>
-                        <td>Colombia</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                    </tr>
-                    <tr>
-                        <td>Costa Rica</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                    </tr>
+                    <?php
+                    foreach($grupoA->getEquipos() as $equipo){
+                    	?>
+                    	<tr>
+	                        <td><?php echo $equipo->getNombre(); ?></td>
+	                        <td align="center"><?php echo $equipo->getPJ(); ?></td>
+	                        <td align="center"><?php echo $equipo->getPG(); ?></td>
+	                        <td align="center"><?php echo $equipo->getPE(); ?></td>
+	                        <td align="center"><?php echo $equipo->getPP(); ?></td>
+	                        <td align="center"><?php echo $equipo->getCG(); ?></td>
+	                        <td align="center"><?php echo $equipo->getGE(); ?></td>
+	                        <td align="center"><?php echo $equipo->getGA(); ?></td>
+	                        <td align="center"><?php echo $equipo->getPTS(); ?></td>
+                    	</tr>
+                    	<?php
+                    }
+                    ?>
             </table>
 		</div>            
             <h2>Grupo B</h2>
