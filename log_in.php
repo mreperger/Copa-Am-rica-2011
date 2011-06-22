@@ -74,7 +74,7 @@
                     </tr>
                     <tr>
                     	<td></td>
-                        <td><a href=""><p1>Has olvidado tu contrase&ntilde;a?</p1></a></td>
+                        <td><a href=""><p1>&iquest;Has olvidado tu contrase&ntilde;a?</p1></a></td>
                     </tr>
                 </table>
                 
@@ -88,7 +88,7 @@
                 <table width="420">
 <tr>
                         <td align="right" width="200">Correo Electronico:</td>
-            <td width="198"><input type="text" name="sign_usuario" /></td>
+            			<td width="198"><input type="text" name="sign_usuario" /></td>
                   </tr>
                     <tr>
                         <td align="right">Contrase&ntilde;a:</td>
