@@ -109,7 +109,7 @@
                         <td align="center">PTS</td>
                     </tr>
                     <tr>
-                        <td>Brasil</td>
+                        <td>Bras&iacute;l</td>
                         <td align="center">0</td>
                         <td align="center">0</td>
                         <td align="center">0</td>
@@ -180,7 +180,7 @@
                         <td align="center">0</td>
                     </tr>
                     <tr>
-                        <td>M�xico</td>
+                        <td>M&eacute;xico</td>
                         <td align="center">0</td>
                         <td align="center">0</td>
                         <td align="center">0</td>
@@ -191,7 +191,7 @@
                         <td align="center">0</td>
                     </tr>
                     <tr>
-                        <td>Per�</td>
+                        <td>Per&uacute;</td>
                         <td align="center">0</td>
                         <td align="center">0</td>
                         <td align="center">0</td>
