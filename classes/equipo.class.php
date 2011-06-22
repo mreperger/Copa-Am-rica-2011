@@ -109,19 +109,19 @@
 		}*/
 		
 		public function getPJ(){
-			return $this->calcPJ;
+			return $this->pj;
 		}
 		
 		public function getPG(){
-			return $this->calcPG;
+			return $this->pg;
 		}
 		
 		public function getPE(){
-			return $this->calcPE;
+			return $this->pe;
 		}
 		
 		public function getPP(){
-			return $this->calcPP;
+			return $this->pp;
 		}
 	}
 ?>
