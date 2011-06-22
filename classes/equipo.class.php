@@ -51,6 +51,7 @@
 			$this->calcPG($conn);
 			$this->calcPE($conn);
 			$this->calcPP($conn);
+			$this->calcGC($conn);
 			//Hacer todas las otras
 		}
 		
@@ -98,6 +99,20 @@
 			}
 		}
 		
+		private function calcGC($conn){
+			$sql_gc = "(SELECT * FROM partidos WHERE (equipo_locatario = ".$this->id." OR equipo_visitante = ".$this->id.") AND estado_partido = 1);";
+			$rsGC = mysql_query($sql_gc, $conn) or die(mysql_error());
+			$total = 0;
+			while($row_GC = mysql_fetch_array($rsGC)){
+				$GC = $total + $row_GC['goles_equipo_locatario'] + $row_GC['goles_equipo_visitante'];
+			}
+			if($GC){
+				$this->gc = $GC;
+			}else{
+				$this->gc = 0;
+			}
+		}
+		
 		/*function getNombreEquipo($id,$conn){
 			$sql_equipos = "SELECT nombre FROM equipos WHERE id = '".$id."';";
 			$rsEquipos = mysql_query($sql_equipos,$conn) or die(mysql_error());
@@ -122,6 +137,10 @@
 		
 		public function getPP(){
 			return $this->pp;
+		}
+		
+		public function getGC(){
+			return $this->gc;
 		}
 	}
 ?>
