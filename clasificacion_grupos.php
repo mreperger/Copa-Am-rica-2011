@@ -58,7 +58,7 @@
 	                        <td align="center"><?php echo $equipo->getPG(); ?></td>
 	                        <td align="center"><?php echo $equipo->getPE(); ?></td>
 	                        <td align="center"><?php echo $equipo->getPP(); ?></td>
-	                        <td align="center"><?php echo $equipo->getCG(); ?></td>
+	                        <td align="center"><?php echo $equipo->getGC(); ?></td>
 	                        <td align="center"><?php echo $equipo->getGE(); ?></td>
 	                        <td align="center"><?php echo $equipo->getGA(); ?></td>
 	                        <td align="center"><?php echo $equipo->getPTS(); ?></td>
