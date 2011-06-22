@@ -69,7 +69,7 @@
             </table>
 		</div>            
             <h2>Grupo B</h2>
-      	<div class="grupo">      
+      	<div class="grupo">    	
             <table>
                     <tr>
                         <td>NOMBRE</td>
@@ -82,54 +82,27 @@
                         <td align="center">GA</td>
                         <td align="center">PTS</td>
                     </tr>
-                    <tr>
-                        <td>Bras&iacute;l</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                    </tr>
-                    <tr>
-                        <td>Ecuador</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                    </tr>
-                    <tr>
-                        <td>Paraguay</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                    </tr>
-                    <tr>
-                        <td>Venezuela</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                    </tr>
+                    <?php
+                    foreach($grupoB->getEquipos() as $equipo){
+                    	?>
+                    	<tr>
+	                        <td><?php echo $equipo->getNombre(); ?></td>
+	                        <td align="center"><?php echo $equipo->getPJ(); ?></td>
+	                        <td align="center"><?php echo $equipo->getPG(); ?></td>
+	                        <td align="center"><?php echo $equipo->getPE(); ?></td>
+	                        <td align="center"><?php echo $equipo->getPP(); ?></td>
+	                        <td align="center"><?php echo $equipo->getGC(); ?></td>
+	                        <td align="center"><?php echo $equipo->getGE(); ?></td>
+	                        <td align="center"><?php echo $equipo->getGA(); ?></td>
+	                        <td align="center"><?php echo $equipo->getPTS(); ?></td>
+                    	</tr>
+                    	<?php
+                    }
+                    ?>
             </table>
-		</div>            
+      	</div>
             <h2>Grupo C</h2>
-      	<div class="grupo">      
+      	<div class="grupo">    	
             <table>
                     <tr>
                         <td>NOMBRE</td>
@@ -142,53 +115,26 @@
                         <td align="center">GA</td>
                         <td align="center">PTS</td>
                     </tr>
-                    <tr>
-                        <td>Chile</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                    </tr>
-                    <tr>
-                        <td>M&eacute;xico</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                    </tr>
-                    <tr>
-                        <td>Per&uacute;</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                    </tr>
-                    <tr>
-                        <td>Uruguay</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                        <td align="center">0</td>
-                    </tr>
-            </table>
-   		</div>         
-  	</div>
+                    <?php
+                    foreach($grupoC->getEquipos() as $equipo){
+                    	?>
+                    	<tr>
+	                        <td><?php echo $equipo->getNombre(); ?></td>
+	                        <td align="center"><?php echo $equipo->getPJ(); ?></td>
+	                        <td align="center"><?php echo $equipo->getPG(); ?></td>
+	                        <td align="center"><?php echo $equipo->getPE(); ?></td>
+	                        <td align="center"><?php echo $equipo->getPP(); ?></td>
+	                        <td align="center"><?php echo $equipo->getGC(); ?></td>
+	                        <td align="center"><?php echo $equipo->getGE(); ?></td>
+	                        <td align="center"><?php echo $equipo->getGA(); ?></td>
+	                        <td align="center"><?php echo $equipo->getPTS(); ?></td>
+                    	</tr>
+                    	<?php
+                    }
+                    ?>
+            </table>         
+  		</div>
+ 	</div>
  	<div id="pie_pagina">
     	<a href="http://www.conmebol.com"><img src="logos/conmebol.png" width="71" height="71" /></a>
         <a href="http://www.afa.org.ar"><img src="logos/argentina.png" width="53" height="71" /></a>
