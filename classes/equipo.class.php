@@ -157,33 +157,7 @@
 		}
 		
 		private function calcPTS($conn){
-			$sql_pts = "(SELECT * FROM partidos WHERE (equipo_locatario = ".$this->id." OR equipo_visitante = ".$this->id.") AND estado_partido = 1);";
-			$rsPTS = mysql_query($sql_pts, $conn) or die(mysql_error());
-			$total = 0;
-			while($row_PTS = mysql_fetch_array($rsPTS)){
-				if($row_PTS["equipo_locatario"] == $this->id){
-					if($row_PTS["goles_equipo_locatario"] > $row_PTS["goles_equipo_visitante"]){
-						$total = $total + 3;
-					}elseif($row_PTS["goles_equipo_locatario"] = $row_PTS["goles_equipo_visitante"]){
-						$total = $total + 1;
-					}else{
-						$total = $total + 0;
-					}
-				}elseif($row_PTS["equipo_visitante"] == $this->id){
-					if($row_PTS["goles_equipo_visitante"] > $row_PTS["goles_equipo_locatario"]){
-						$total = $total + 3;
-					}elseif($row_PTS["goles_equipo_visitante"] = $row_PRS["goles_equipo_locatario"]){
-						$total = $total + 1;
-					}else{
-						$total = $total + 0;
-					}
-				}
-			}
-			if($total){
-				$this->pts = $total;
-			}else{
-				$this->pts = 0;
-			}
+			$this->pts = $this->pg * 3 + $this->pe * 1;
 		}	
 		
 		/*function getNombreEquipo($id,$conn){
