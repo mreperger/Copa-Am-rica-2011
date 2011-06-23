@@ -54,7 +54,7 @@
     <div id="log_in">
     	<h2>Ingresar</h2>
 		<div class="menu_usuario">    	
-            <form name="frm_log_in" action="" method="post">
+            <form name="frm_log_in" action="resultados_usuario.php" method="post">
                 <table width="286">
 <tr>
                         <td align="right" width="20px">Usuario:</td>
