@@ -221,7 +221,14 @@
          	</table>
          	<table>
               	<tr>
-	                <td><input class="btn_resultados" type="submit" value="Ingresar Resultados" name="btn_resultado_usuario" ></td>
+              		<td width="86" align="center"></td>
+	                <td width="89"></td>
+	                <td width="15" align="center"></td>
+	                <td width="17" align="center"></td>
+	                <td width="15" align="center"></td>
+	                <td width="114"></td>
+	                <td width="84"><input class="btn_resultados" type="submit" value="Ingresar Resultados" name="btn_resultado_usuario" ></td>
+	                
               	</tr>
             </table>
       	</form>
