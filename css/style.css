@@ -119,7 +119,10 @@ p1{
 	color: #f3c65a;
 }
 #fixture_menu{
-	height:532px;
+	height:496px;
+}
+#fixture_menu_usuario{
+	height:600px;
 }
 #grupos_menu{
 	height:405px;
@@ -167,4 +170,27 @@ p1{
 	margin-top:18px;
 	margin-left:auto;
 	margin-right:auto;
+}
+.tamano_resultado{
+	width: 15px;
+	text-align:center;
+}
+.btn_resultados{
+	margin-top:5px;
+}
+.titulo_resultados{
+	text-align:center;
+	color: #f3c65a;
+}
+.fixture_resultados{
+	float:left;
+	width:482px;
+	padding-top:0px;
+	padding-left:14px;
+}
+.fixture_finales_resultados{
+	float:left;
+	width:482px;
+	padding-top:0px;
+	padding-left:18px;
 }
