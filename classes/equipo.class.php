@@ -55,7 +55,6 @@
 			$this->calcGE($conn);
 			$this->calcGA($conn);
 			$this->calcPTS($conn);
-			//Hacer todas las otras
 		}
 		
 		private function calcPJ($conn){
