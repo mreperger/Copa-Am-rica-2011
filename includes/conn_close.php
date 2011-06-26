@@ -1,0 +1,1 @@
+<?php mysql_close($conn); //cierra la conexion ?>
