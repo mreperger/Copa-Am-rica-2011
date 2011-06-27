@@ -3,19 +3,6 @@
 <?php require_once("classes/equipo.class.php"); ?>
 <?php require_once("classes/estadio.class.php"); ?>
 <?php
-	//SACAR ESTO
-	function getNombreEstadio($id,$conn){
-		$sql_equipos = "SELECT nombre FROM estadios WHERE id = '".$id."';";
-		$rsEquipos = mysql_query($sql_equipos,$conn) or die(mysql_error());
-		if($rowEquipos = mysql_fetch_assoc($rsEquipos)){
-			return $rowEquipos["nombre"];
-		}else{
-			return "ERROR!";
-		}
-	}
-
-?>
-<?php
 	if(isset($_GET["res"])){
 		if($_GET["res"] == 0){
 			$_SESSION["url_back"] = "index.php";
