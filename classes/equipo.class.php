@@ -25,7 +25,7 @@
 				$this->grupo = $rowEquipo["grupo"];
 				$this->estado_clasificacion = $rowEquipo["estado_clasificacion"];
 			}else{
-				echo "Ha ocurrido un error terrible e inexplicable, dios salvanos.";
+				echo "Ha ocurrido un error";
 			}
 		}
 		
@@ -158,16 +158,6 @@
 		private function calcPTS($conn){
 			$this->pts = $this->pg * 3 + $this->pe * 1;
 		}	
-		
-		/*function getNombreEquipo($id,$conn){
-			$sql_equipos = "SELECT nombre FROM equipos WHERE id = '".$id."';";
-			$rsEquipos = mysql_query($sql_equipos,$conn) or die(mysql_error());
-			if($rowEquipos = mysql_fetch_assoc($rsEquipos)){
-				return $rowEquipos["nombre"];
-			}else{
-				return "ERROR!";
-			}
-		}*/
 		
 		public function getPJ(){
 			return $this->pj;
