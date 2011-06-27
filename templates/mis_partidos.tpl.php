@@ -3,12 +3,7 @@
         <div class="fixture_resultados">
         <form name="frm_resultados_usuario" action="" method="post">
     	    <h2>Grupo A</h2>
-        
-        <?php
-            $sql_partidosA = "SELECT * FROM partidos WHERE grupo = 'A' ORDER BY fecha ASC";
-            $rsPartidosA = mysql_query($sql_partidosA,$conn) or die(mysql_error());
-        ?>
-        
+
         <table width="500">
             <?php while($rowPartidosA = mysql_fetch_assoc($rsPartidosA)){ ?>
             <tr>
@@ -16,23 +11,20 @@
               <?php 
               	$equipo_locatario = new Equipo($rowPartidosA["equipo_locatario"], $conn);
 				$equipo_visitante = new Equipo($rowPartidosA["equipo_visitante"], $conn);
+				$estadio = new Estadio($rowPartidosA["id_estadio"], $conn);
               ?>
               <td width="70"><?php echo $equipo_locatario->getNombre(); ?></td>
               <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
               <td width="15" align="center">vs</td>
               <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
               <td width="74"><?php echo $equipo_visitante->getNombre(); ?></td>
-              <td width="141"><p1><?php echo (getNombreEstadio($rowPartidosA["id_estadio"],$conn)); ?></p1></td>
+              <td width="141"><p1><?php echo $estadio->getNombreEstadio(); ?></p1></td>
             </tr>
             <?php } ?>
         </table>
         
           <h2>Grupo B</h2>
-        <?php
-            $sql_partidosB = "SELECT * FROM partidos WHERE grupo = 'B' ORDER BY fecha ASC";
-            $rsPartidosB = mysql_query($sql_partidosB,$conn) or die(mysql_error());
-        ?>
-        
+          
         <table width="500">
             <?php while($rowPartidosB = mysql_fetch_assoc($rsPartidosB)){ ?>
             <tr>
@@ -40,22 +32,19 @@
               <?php 
               	$equipo_locatario = new Equipo($rowPartidosB["equipo_locatario"], $conn);
 				$equipo_visitante = new Equipo($rowPartidosB["equipo_visitante"], $conn);
+				$estadio = new Estadio($rowPartidosB["id_estadio"], $conn);
               ?>
               <td width="70"><?php echo $equipo_locatario->getNombre(); ?></td>
               <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
               <td width="15" align="center">vs</td>
               <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
               <td width="74"><?php echo $equipo_visitante->getNombre(); ?></td>
-              <td width="141"><p1><?php echo (getNombreEstadio($rowPartidosB["id_estadio"],$conn)); ?></p1></td>
+              <td width="141"><p1><?php echo $estadio->getNombreEstadio(); ?></p1></td>
             </tr>
             <?php } ?>
         </table>
         
             <h2>Grupo C</h2>
-        <?php
-            $sql_partidosC = "SELECT * FROM partidos WHERE grupo = 'C' ORDER BY fecha ASC";
-            $rsPartidosC = mysql_query($sql_partidosC,$conn) or die(mysql_error());
-        ?>
         
         <table width="500">
             <?php while($rowPartidosC = mysql_fetch_assoc($rsPartidosC)){ ?>
@@ -64,13 +53,14 @@
               <?php 
               	$equipo_locatario = new Equipo($rowPartidosC["equipo_locatario"], $conn);
 				$equipo_visitante = new Equipo($rowPartidosC["equipo_visitante"], $conn);
+				$estadio = new Estadio($rowPartidosC["id_estadio"], $conn);
               ?>
               <td width="70"><?php echo $equipo_locatario->getNombre(); ?></td>
               <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
               <td width="15" align="center">vs</td>
               <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
               <td width="74"><?php echo $equipo_visitante->getNombre(); ?></td>
-              <td width="141"><p1><?php echo (getNombreEstadio($rowPartidosC["id_estadio"],$conn)); ?></p1></td>
+              <td width="141"><p1><?php echo $estadio->getNombreEstadio(); ?></p1></td>
             </tr>
             <?php } ?>
         </table>
@@ -78,94 +68,236 @@
         
         <div class="fixture_finales_resultados">
             <h2>Cuartos de Finales</h2>
-            <table>
-              <tr>
-                <td width="86" align="center">16:00 - 16/07</td>
-                <td width="89">1ro Grupo A</td>
+            
+            <table width="500">
+            <?php while($rowPartidoS1 = mysql_fetch_assoc($rsPartidoS1)){ ?>
+            <tr>
+              <td width="86" align="center"><?php echo convertString2Date($rowPartidoS1["fecha"],$conn); ?></td>
+              <?php
+              	if($rowPartidoS1["equipo_locatario"] != 0){
+              		$equipo_locatario = new Equipo($rowPartidoS1["equipo_locatario"], $conn);
+              	}else{
+              		$equipo_locatario = "1ro Grupo A";
+              	}
+              	if($rowPartidoS1["equipo_visitante"] != 0){
+              		$equipo_visitante = new Equipo($rowPartidoS1["equipo_visitante"], $conn);
+              	}else{
+              		$equipo_visitante = "1er Tercero";
+              	}
+				
+				$estadio = new Estadio($rowPartidoS1["id_estadio"], $conn);
+              ?>
+              <td width="89"><?php echo $equipo_locatario; ?></td>
                 <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
                 <td width="17" align="center">vs</td>
                 <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
-                <td width="114">Mejor Tercero</td>
-                <td width="69"><p1>Cordoba</p1></td>
-                <td width="17">S1</td>
-              </tr>
-              <tr>
-                <td width="86" align="center">19:15 - 16/07</td>
-                <td width="89">2do Grupo A</td>
-                <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
-                <td width="17" align="center">vs</td>
-                <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
-                <td width="114">2do Grupo C</td>
-                <td width="69"><p1>Santa F&eacute;</p1></td>
-                <td>S2</td>
-              </tr>
-              <tr>
-                <td width="86" align="center">16:00 - 17/07</td>
-                <td width="89">1ro Grupo B</td>
-                <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
-                <td width="17" align="center">vs</td>
-                <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
-                <td width="114">2do Mejor Tercero</td>
-                <td width="69"><p1>La Plata</p1></td>
-                <td>S3</td>
-              </tr>
-              <tr>
-                <td width="86" align="center">19:15 - 17/07</td>
-                <td width="89">1ro Grupo C</td>
-                <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
-                <td width="17" align="center">vs</td>
-                <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
-                <td width="114">2do Grupo B</td>
-                <td width="69"><p1>San Juan</p1></td>
-                <td>S4</td>
-              </tr>
-            </table>
+                <td width="114"><?php echo $equipo_visitante; ?></td>
+              <td width="69"><p1><?php echo $estadio->getNombreEstadio(); ?></p1></td>
+              <td>S1</td>
+            </tr>
+            <?php } ?>
+        </table>
+        <table width="500">
+            <?php while($rowPartidoS2 = mysql_fetch_assoc($rsPartidoS2)){ ?>
+            <tr>
+              <td width="86" align="center"><?php echo convertString2Date($rowPartidoS2["fecha"],$conn); ?></td>
+              <?php
+              	if($rowPartidoS2["equipo_locatario"] != 0){
+              		$equipo_locatario = new Equipo($rowPartidoS2["equipo_locatario"], $conn);
+              	}else{
+              		$equipo_locatario = "2do Grupo A";
+              	}
+              	if($rowPartidoS2["equipo_visitante"] != 0){
+              		$equipo_visitante = new Equipo($rowPartidoS2["equipo_visitante"], $conn);
+              	}else{
+              		$equipo_visitante = "2do Grupo C";
+              	}
+				
+				$estadio = new Estadio($rowPartidoS2["id_estadio"], $conn);
+              ?>
+              <td width="89"><?php echo $equipo_locatario; ?></td>
+              <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
+          	  <td width="17" align="center">vs</td>
+              <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
+              <td width="114"><?php echo $equipo_visitante; ?></td>
+              <td width="69"><p1><?php echo $estadio->getNombreEstadio(); ?></p1></td>
+              <td>S2</td>
+            </tr>
+            <?php } ?>
+        </table>
+        <table width="500">
+            <?php while($rowPartidoS3 = mysql_fetch_assoc($rsPartidoS3)){ ?>
+            <tr>
+              <td width="86" align="center"><?php echo convertString2Date($rowPartidoS3["fecha"],$conn); ?></td>
+              <?php
+              	if($rowPartidoS3["equipo_locatario"] != 0){
+              		$equipo_locatario = new Equipo($rowPartidoS3["equipo_locatario"], $conn);
+              	}else{
+              		$equipo_locatario = "1ro Grupo B";
+              	}
+              	if($rowPartidoS3["equipo_visitante"] != 0){
+              		$equipo_visitante = new Equipo($rowPartidoS3["equipo_visitante"], $conn);
+              	}else{
+              		$equipo_visitante = "2do Tercero";
+              	}
+				
+				$estadio = new Estadio($rowPartidoS3["id_estadio"], $conn);
+              ?>
+              <td width="89"><?php echo $equipo_locatario; ?></td>
+              <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
+          	  <td width="17" align="center">vs</td>
+              <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
+              <td width="114"><?php echo $equipo_visitante; ?></td>
+              <td width="69"><p1><?php echo $estadio->getNombreEstadio(); ?></p1></td>
+              <td>S3</td>
+            </tr>
+            <?php } ?>
+        </table>
+        <table width="500">
+            <?php while($rowPartidoS4 = mysql_fetch_assoc($rsPartidoS4)){ ?>
+            <tr>
+              <td width="86" align="center"><?php echo convertString2Date($rowPartidoS4["fecha"],$conn); ?></td>
+              <?php
+              	if($rowPartidoS4["equipo_locatario"] != 0){
+              		$equipo_locatario = new Equipo($rowPartidoS4["equipo_locatario"], $conn);
+              	}else{
+              		$equipo_locatario = "1ro Grupo C";
+              	}
+              	if($rowPartidoS4["equipo_visitante"] != 0){
+              		$equipo_visitante = new Equipo($rowPartidoS4["equipo_visitante"], $conn);
+              	}else{
+              		$equipo_visitante = "2do Grupo B";
+              	}
+				
+				$estadio = new Estadio($rowPartidoS4["id_estadio"], $conn);
+              ?>
+              <td width="89"><?php echo $equipo_locatario; ?></td>
+              <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
+          	  <td width="17" align="center">vs</td>
+              <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
+              <td width="114"><?php echo $equipo_visitante; ?></td>
+              <td width="69"><p1><?php echo $estadio->getNombreEstadio(); ?></p1></td>
+              <td>S4</td>
+            </tr>
+            <?php } ?>
+        </table>
+        
             <h2>Semifinales</h2>
-            <table>
-              <tr>
-                <td width="86" align="center">21:45 - 19/07</td>
-                <td width="89">Ganador S1</td>
-                <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
-                <td width="17" align="center">vs</td>
-                <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
-                <td width="114">Ganador S2</td>
-                <td width="69"><p1>La Plata</p1></td>
-                <td>G1</td>
-              </tr>
-              <tr>
-                <td width="86" align="center">21:45 - 20/07</td>
-                <td width="89">Ganador S3</td>
-                <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
-                <td width="17" align="center">vs</td>
-                <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
-                <td width="114">Ganador S4</td>
-                <td width="69"><p1>Mendoza</p1></td>
-                <td>G2</td>
-              </tr>
-            </table>
+            <table width="500">
+            <?php while($rowPartidoG1 = mysql_fetch_assoc($rsPartidoG1)){ ?>
+            <tr>
+              <td width="86" align="center"><?php echo convertString2Date($rowPartidoG1["fecha"],$conn); ?></td>
+              <?php
+              	if($rowPartidoG1["equipo_locatario"] != 0){
+              		$equipo_locatario = new Equipo($rowPartidoG1["equipo_locatario"], $conn);
+              	}else{
+              		$equipo_locatario = "Ganador S1";
+              	}
+              	if($rowPartidoG1["equipo_visitante"] != 0){
+              		$equipo_visitante = new Equipo($rowPartidoG1["equipo_visitante"], $conn);
+              	}else{
+              		$equipo_visitante = "Ganador S2";
+              	}
+				
+				$estadio = new Estadio($rowPartidoG1["id_estadio"], $conn);
+              ?>
+              <td width="89"><?php echo $equipo_locatario; ?></td>
+              <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
+          	  <td width="17" align="center">vs</td>
+              <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
+              <td width="114"><?php echo $equipo_visitante; ?></td>
+              <td width="69"><p1><?php echo $estadio->getNombreEstadio(); ?></p1></td>
+              <td>G1</td>
+            </tr>
+            <?php } ?>
+        </table>
+        <table width="500">
+            <?php while($rowPartidoG2 = mysql_fetch_assoc($rsPartidoG2)){ ?>
+            <tr>
+              <td width="86" align="center"><?php echo convertString2Date($rowPartidoG2["fecha"],$conn); ?></td>
+              <?php
+              	if($rowPartidoG2["equipo_locatario"] != 0){
+              		$equipo_locatario = new Equipo($rowPartidoG2["equipo_locatario"], $conn);
+              	}else{
+              		$equipo_locatario = "Ganador S3";
+              	}
+              	if($rowPartidoG2["equipo_visitante"] != 0){
+              		$equipo_visitante = new Equipo($rowPartidoG2["equipo_visitante"], $conn);
+              	}else{
+              		$equipo_visitante = "Ganador S4";
+              	}
+				
+				$estadio = new Estadio($rowPartidoG2["id_estadio"], $conn);
+              ?>
+              <td width="89"><?php echo $equipo_locatario; ?></td>
+              <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
+          	  <td width="17" align="center">vs</td>
+              <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
+              <td width="114"><?php echo $equipo_visitante; ?></td>
+              <td width="69"><p1><?php echo $estadio->getNombreEstadio(); ?></p1></td>
+              <td>G2</td>
+            </tr>
+            <?php } ?>
+        </table>
+            
             <h2>Tercer Puesto</h2>
-            <table>
-              <tr>
-                <td width="86" align="center">16:00 - 23/07</td>
-                <td width="89">Perdedor G1</td>
-                <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
-                <td width="17" align="center">vs</td>
-                <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
-                <td width="114">Perdedor G2</td>
-                <td width="69"><p1>La Plata</p1></td>
-              </tr>
-            </table>
+            <table width="500">
+            <?php while($rowPartidoTERCER = mysql_fetch_assoc($rsPartidoTERCER)){ ?>
+            <tr>
+              <td width="86" align="center"><?php echo convertString2Date($rowPartidoTERCER["fecha"],$conn); ?></td>
+              <?php
+              	if($rowPartidoTERCER["equipo_locatario"] != 0){
+              		$equipo_locatario = new Equipo($rowPartidoTERCER["equipo_locatario"], $conn);
+              	}else{
+              		$equipo_locatario = "Ganador S3";
+              	}
+              	if($rowPartidoTERCER["equipo_visitante"] != 0){
+              		$equipo_visitante = new Equipo($rowPartidoTERCER["equipo_visitante"], $conn);
+              	}else{
+              		$equipo_visitante = "Ganador S4";
+              	}
+				
+				$estadio = new Estadio($rowPartidoTERCER["id_estadio"], $conn);
+              ?>
+              <td width="89"><?php echo $equipo_locatario; ?></td>
+              <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
+          	  <td width="17" align="center">vs</td>
+              <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
+              <td width="114"><?php echo $equipo_visitante; ?></td>
+              <td width="69"><p1><?php echo $estadio->getNombreEstadio(); ?></p1></td>
+              <td></td>
+            </tr>
+            <?php } ?>
+        </table>
+            
             <h2>Final</h2>
-            <table>
-              	<tr>
-	                <td width="86" align="center">16:00 - 24/07</td>
-	                <td width="89">Ganador G1</td>
-	                <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
-	                <td width="17" align="center">vs</td>
-	                <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
-	                <td width="114">Ganador G2</td>
-	                <td width="84"><p1>Buenos Aires</p1></td>
-          		</tr>
+            <table width="500">
+	            <?php while($rowPartidoFINAL = mysql_fetch_assoc($rsPartidoFINAL)){ ?>
+	            <tr>
+	              <td width="86" align="center"><?php echo convertString2Date($rowPartidoFINAL["fecha"],$conn); ?></td>
+	              <?php
+	              	if($rowPartidoFINAL["equipo_locatario"] != 0){
+	              		$equipo_locatario = new Equipo($rowPartidoFINAL["equipo_locatario"], $conn);
+	              	}else{
+	              		$equipo_locatario = "Ganador G1";
+	              	}
+	              	if($rowPartidoFINAL["equipo_visitante"] != 0){
+	              		$equipo_visitante = new Equipo($rowPartidoFINAL["equipo_visitante"], $conn);
+	              	}else{
+	              		$equipo_visitante = "Ganador G2";
+	              	}
+					
+					$estadio = new Estadio($rowPartidoFINAL["id_estadio"], $conn);
+	              ?>
+	              <td width="89"><?php echo $equipo_locatario; ?></td>
+	              <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
+          	  	  <td width="17" align="center">vs</td>
+             	  <td width="15" align="center"><input class="tamano_resultado" type="text" action="" method="post" ></td>
+	              <td width="114"><?php echo $equipo_visitante; ?></td>
+	              <td width="69"><p1><?php echo $estadio->getNombreEstadio(); ?></p1></td>
+	              <td></td>
+	            </tr>
+	            <?php } ?>
          	</table>
          	<table>
               	<tr>
