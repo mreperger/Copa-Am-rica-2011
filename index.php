@@ -44,6 +44,7 @@
 	$rsPartidoS1 = mysql_query($sql_partidoS1,$conn) or die(mysql_error());
 	$rsPartidoS2 = mysql_query($sql_partidoS2,$conn) or die(mysql_error());
 	$rsPartidoS3 = mysql_query($sql_partidoS3,$conn) or die(mysql_error());
+	$rsPartidoS4 = mysql_query($sql_partidoS4,$conn) or die(mysql_error());
 	$rsPartidoG1 = mysql_query($sql_partidoG1,$conn) or die(mysql_error());
 	$rsPartidoG2 = mysql_query($sql_partidoG2,$conn) or die(mysql_error());
 	$rsPartidoTERCER = mysql_query($sql_partidoTERCER,$conn) or die(mysql_error());
