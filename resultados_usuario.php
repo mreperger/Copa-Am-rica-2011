@@ -51,6 +51,19 @@
 	$rsPartidoTERCER = mysql_query($sql_partidoTERCER,$conn) or die(mysql_error());
 	$rsPartidoFINAL = mysql_query($sql_partidoFINAL,$conn) or die(mysql_error());
 ?>
+<?php
+	if(isset($_POST["btn_resultados"])){
+		$goles_equipo_locatarioA = $_POST["goles_equipo_locatarioA"];
+		$goles_equipo_visitanteA = $_POST["goles_equipo_locatarioA"];
+		
+		if($_POST["goles_equipo_locatarioA"] != "" && $_POST["goles_equipo_visitanteA"] != ""){
+			$sql_insert = "INSERT INTO 'partidos_usuartios' ('id', 'id_usuario', 'id_partido', 'id_equipo_locatario', 'goles_equipo_locatario', 'id_equipo_visitante', 'goles_equipo_visitante') VALUES (NULL, '".$_SESSION["id_usuario"]."', '".$rowPartidosA["id"]."', '".$rowPartidosA["equipo_locatario"]."', '".$goles_equipo_locatarioA."', '".$rowPartidosA["equipo_locatario"]."','".$goles_equipo_visitanteA."');";
+			mysql_query($sql_insert, $conn) or die(mysql_error());
+		}else{
+			$msg_error = "Debe agregar los resultados";
+		}
+	}
+?>
 <?php require_once("includes/conversion.php"); ?>
 <?php include("templates/html_head.tpl.php"); ?>
 <?php include("templates/menu.tpl.php"); ?>
