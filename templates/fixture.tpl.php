@@ -267,7 +267,7 @@
               		$equipo_visitante_obj = new Equipo($rowPartidoTERCER["equipo_visitante"], $conn);
 					$equipo_visitante = $equipo_visitante_obj->getNombre();
               	}else{
-              		$equipo_visitante = "Perdedor G1";
+              		$equipo_visitante = "Perdedor G2";
               	}
 				
 				$estadio = new Estadio($rowPartidoTERCER["id_estadio"], $conn);
