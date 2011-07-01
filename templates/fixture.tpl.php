@@ -261,13 +261,13 @@
               		$equipo_locatario_obj = new Equipo($rowPartidoTERCER["equipo_locatario"], $conn);
 					$equipo_locatario = $equipo_locatario_obj->getNombre();
               	}else{
-              		$equipo_locatario = "Ganador S3";
+              		$equipo_locatario = "Perdedor G1";
               	}
               	if($rowPartidoTERCER["equipo_visitante"] != 0){
               		$equipo_visitante_obj = new Equipo($rowPartidoTERCER["equipo_visitante"], $conn);
 					$equipo_visitante = $equipo_visitante_obj->getNombre();
               	}else{
-              		$equipo_visitante = "Ganador S4";
+              		$equipo_visitante = "Perdedor G1";
               	}
 				
 				$estadio = new Estadio($rowPartidoTERCER["id_estadio"], $conn);
