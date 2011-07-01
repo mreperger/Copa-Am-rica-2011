@@ -4,6 +4,39 @@
 <?php require_once("classes/estadio.class.php"); ?>
 <?php if(!isset($_SESSION["id_usuario"])){ header("Location: log_in.php"); } ?>
 <?php
+
+	if(isset($_POST["btn_resultado_usuario"])){
+		$error = 0;
+		
+		for($i=1;$i<=26;$i++){
+			$resultados[$i]["id_partido"] = $_POST["id_partido_".$i];
+			$resultados[$i]["id_equipo_locatario"] = $_POST["id_equipo_locatario_".$i];
+			$resultados[$i]["goles_equipo_locatario"] = $_POST["goles_equipo_locatario_".$i];
+			$resultados[$i]["id_equipo_visitante"] = $_POST["id_equipo_visitante_".$i];
+			$resultados[$i]["goles_equipo_visitante"] = $_POST["goles_equipo_visitante_".$i];
+			
+			if($resultados[$i]["id_partido"] <= 0 || $resultados[$i]["id_equipo_locatario"] <= 0 || $resultados[$i]["goles_equipo_locatario"] < 0 || $resultados[$i]["id_equipo_visitante"] <= 0 || $resultados[$i]["goles_equipo_visitante"] < 0 || !is_numeric($resultados[$i]["goles_equipo_visitante"]) || !is_numeric($resultados[$i]["goles_equipo_locatario"])){
+				$error = 1;
+				$msg_err = "Ha ocurrido un error. Verifique los datos y vuelva a intentarlo.";
+			}
+		}
+		$id_usuario_post = $_SESSION["id_usuario"];
+		
+		if($error == 0){
+			for($i=1;$i<=26;$i++){
+				$sql = "INSERT INTO `partidos_usuarios` (`id`, `id_usuario`, `id_partido`, `id_equipo_locatario`, `goles_equipo_locatario`, `id_equipo_visitante`, `goles_equipo_visitante`) " .
+				" VALUES (NULL, '".$id_usuario_post."', '".$resultados[$i]["id_partido"]."', '".$resultados[$i]["id_equipo_locatario"]."', '".$resultados[$i]["goles_equipo_locatario"]."', '".$resultados[$i]["id_equipo_visitante"]."', '".$resultados[$i]["goles_equipo_visitante"]."');";
+				mysql_query($sql,$conn) or die("Error al insertar");
+			}
+			//Activo usuario
+			$sql_update = "UPDATE usuarios SET activo = '1' WHERE id = '".$id_usuario_post."'";
+			mysql_query($sql_update, $conn) or die("Error al actualizar");
+			
+			header("Location: index.php?res=".$id_usuario_post);
+				
+		}
+	}
+
 	if(isset($_GET["res"])){
 		if($_GET["res"] == 0){
 			$_SESSION["url_back"] = "index.php";
@@ -29,40 +62,43 @@
         $sql_partidosA = "SELECT * FROM partidos WHERE grupo = 'A' ORDER BY fecha ASC";
 		$sql_partidosB = "SELECT * FROM partidos WHERE grupo = 'B' ORDER BY fecha ASC";
 		$sql_partidosC = "SELECT * FROM partidos WHERE grupo = 'C' ORDER BY fecha ASC";
-		$sql_partidoS1 = "SELECT * FROM partidos WHERE id = 51";
-		$sql_partidoS2 = "SELECT * FROM partidos WHERE id = 52";
-		$sql_partidoS3 = "SELECT * FROM partidos WHERE id = 53";
-		$sql_partidoS4 = "SELECT * FROM partidos WHERE id = 54";
-		$sql_partidoG1 = "SELECT * FROM partidos WHERE id = 55";
-		$sql_partidoG2 = "SELECT * FROM partidos WHERE id = 55";
-		$sql_partidoTERCER = "SELECT * FROM partidos WHERE id = 56";
-		$sql_partidoFINAL = "SELECT * FROM partidos WHERE id = 57";
+		$sql_partidoS1 = "SELECT * FROM partidos WHERE id = '51'";
+		$sql_partidoS2 = "SELECT * FROM partidos WHERE id = '52'";
+		$sql_partidoS3 = "SELECT * FROM partidos WHERE id = '53'";
+		$sql_partidoS4 = "SELECT * FROM partidos WHERE id = '54'";
+		$sql_partidoG1 = "SELECT * FROM partidos WHERE id = '55'";
+		$sql_partidoG2 = "SELECT * FROM partidos WHERE id = '56'";
+		$sql_partidoTERCER = "SELECT * FROM partidos WHERE id = '57'";
+		$sql_partidoFINAL = "SELECT * FROM partidos WHERE id = '58'";
 	}
 	
 	$rsPartidosA = mysql_query($sql_partidosA,$conn) or die(mysql_error());
 	$rsPartidosB = mysql_query($sql_partidosB,$conn) or die(mysql_error());
 	$rsPartidosC = mysql_query($sql_partidosC,$conn) or die(mysql_error());
+	
 	$rsPartidoS1 = mysql_query($sql_partidoS1,$conn) or die(mysql_error());
+	$rowPartidoS1 = mysql_fetch_assoc($rsPartidoS1) or die(mysql_error());
+	
 	$rsPartidoS2 = mysql_query($sql_partidoS2,$conn) or die(mysql_error());
+	$rowPartidoS2 = mysql_fetch_assoc($rsPartidoS2) or die(mysql_error());
+	
 	$rsPartidoS3 = mysql_query($sql_partidoS3,$conn) or die(mysql_error());
+	$rowPartidoS3 = mysql_fetch_assoc($rsPartidoS3) or die(mysql_error());
+	
 	$rsPartidoS4 = mysql_query($sql_partidoS4,$conn) or die(mysql_error());
+	$rowPartidoS4 = mysql_fetch_assoc($rsPartidoS4) or die(mysql_error());
+	
 	$rsPartidoG1 = mysql_query($sql_partidoG1,$conn) or die(mysql_error());
+	$rowPartidoG1 = mysql_fetch_assoc($rsPartidoG1) or die(mysql_error());
+	
 	$rsPartidoG2 = mysql_query($sql_partidoG2,$conn) or die(mysql_error());
+	$rowPartidoG2 = mysql_fetch_assoc($rsPartidoG2) or die(mysql_error());
+	
 	$rsPartidoTERCER = mysql_query($sql_partidoTERCER,$conn) or die(mysql_error());
+	$rowPartidoTERCER = mysql_fetch_assoc($rsPartidoTERCER) or die(mysql_error());
+	
 	$rsPartidoFINAL = mysql_query($sql_partidoFINAL,$conn) or die(mysql_error());
-?>
-<?php
-	if(isset($_POST["btn_resultados"])){
-		$goles_equipo_locatarioA = $_POST["goles_equipo_locatarioA"];
-		$goles_equipo_visitanteA = $_POST["goles_equipo_locatarioA"];
-		
-		if($_POST["goles_equipo_locatarioA"] != "" && $_POST["goles_equipo_visitanteA"] != ""){
-			$sql_insert = "INSERT INTO 'partidos_usuartios' ('id', 'id_usuario', 'id_partido', 'id_equipo_locatario', 'goles_equipo_locatario', 'id_equipo_visitante', 'goles_equipo_visitante') VALUES (NULL, '".$_SESSION["id_usuario"]."', '".$rowPartidosA["id"]."', '".$rowPartidosA["equipo_locatario"]."', '".$goles_equipo_locatarioA."', '".$rowPartidosA["equipo_locatario"]."','".$goles_equipo_visitanteA."');";
-			mysql_query($sql_insert, $conn) or die(mysql_error());
-		}else{
-			$msg_error = "Debe agregar los resultados";
-		}
-	}
+	$rowPartidoFINAL = mysql_fetch_assoc($rsPartidoFINAL) or die(mysql_error());
 ?>
 <?php require_once("includes/conversion.php"); ?>
 <?php include("templates/html_head.tpl.php"); ?>

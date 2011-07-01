@@ -11,7 +11,7 @@
 	<div class="img_cabezal">
 		<img src="logos/ca2011.png" />
 	</div>
-	<h1>PENCA ONLINE <strong>COPA AMERICA ARGENTTINA</strong> 2011</h1>
+	<h1><strong>COPA AMERICA ARGENTTINA</strong> 2011</h1>
 	<div id="menu">
 		<a href="index.php">FIXTURE</a>
 		<a href="clasificacion_grupos.php">GRUPOS</a>

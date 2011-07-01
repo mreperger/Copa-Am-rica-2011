@@ -106,6 +106,11 @@ p strong{
 	font-style:italic;
 	font-weight:normal;
 }
+em{
+	font-style:normal;
+	font-weight:bold;
+	color:#F3C65A;
+}
 .letra_cursiva{
 	font-size:14px;
 	font-style:italic;
@@ -121,7 +126,7 @@ p strong{
 	height:496px;
 }
 #fixture_menu_usuario{
-	height:600px;
+	height:647px;
 }
 #grupos_menu{
 	height:405px;
@@ -184,13 +189,20 @@ p strong{
 }
 .fixture_resultados{
 	float:left;
-	width:482px;
+	width:407px;
 	padding-top:0px;
 	padding-left:14px;
 }
 .fixture_finales_resultados{
 	float:left;
-	width:482px;
+	width:550px;
 	padding-top:0px;
 	padding-left:18px;
+}
+.err_msg{
+	border:1px solid #FF0000;
+	color:#FF0000;
+	padding:10px 10px 10px 10px;
+	font-weight:bold;
+	background-color:#FADCDC;
 }

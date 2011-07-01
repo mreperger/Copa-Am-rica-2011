@@ -73,12 +73,14 @@
               <td width="86" align="center"><?php echo convertString2Date($rowPartidoS1["fecha"],$conn); ?></td>
               <?php
               	if($rowPartidoS1["equipo_locatario"] != 0){
-              		$equipo_locatario = new Equipo($rowPartidoS1["equipo_locatario"], $conn);
+              		$equipo_locatario_obj = new Equipo($rowPartidoS1["equipo_locatario"], $conn);
+					$equipo_locatario = $equipo_locatario_obj->getNombre();
               	}else{
               		$equipo_locatario = "1ro Grupo A";
               	}
               	if($rowPartidoS1["equipo_visitante"] != 0){
-              		$equipo_visitante = new Equipo($rowPartidoS1["equipo_visitante"], $conn);
+              		$equipo_visitante_obj = new Equipo($rowPartidoS1["equipo_visitante"], $conn);
+					$equipo_visitante = $equipo_visitante_obj->getNombre();
               	}else{
               		$equipo_visitante = "1er Tercero";
               	}
@@ -101,12 +103,14 @@
               <td width="86" align="center"><?php echo convertString2Date($rowPartidoS2["fecha"],$conn); ?></td>
               <?php
               	if($rowPartidoS2["equipo_locatario"] != 0){
-              		$equipo_locatario = new Equipo($rowPartidoS2["equipo_locatario"], $conn);
+              		$equipo_locatario_obj = new Equipo($rowPartidoS2["equipo_locatario"], $conn);
+              		$equipo_locatario = $equipo_locatario_obj->getNombre();
               	}else{
               		$equipo_locatario = "2do Grupo A";
               	}
               	if($rowPartidoS2["equipo_visitante"] != 0){
-              		$equipo_visitante = new Equipo($rowPartidoS2["equipo_visitante"], $conn);
+              		$equipo_visitante_obj = new Equipo($rowPartidoS2["equipo_visitante"], $conn);
+					$equipo_visitante = $equipo_visitante_obj->getNombre();
               	}else{
               		$equipo_visitante = "2do Grupo C";
               	}
@@ -129,12 +133,14 @@
               <td width="86" align="center"><?php echo convertString2Date($rowPartidoS3["fecha"],$conn); ?></td>
               <?php
               	if($rowPartidoS3["equipo_locatario"] != 0){
-              		$equipo_locatario = new Equipo($rowPartidoS3["equipo_locatario"], $conn);
+              		$equipo_locatario_obj = new Equipo($rowPartidoS3["equipo_locatario"], $conn);
+              		$equipo_locatario = $equipo_locatario_obj->getNombre();
               	}else{
               		$equipo_locatario = "1ro Grupo B";
               	}
               	if($rowPartidoS3["equipo_visitante"] != 0){
-              		$equipo_visitante = new Equipo($rowPartidoS3["equipo_visitante"], $conn);
+              		$equipo_visitante_obj = new Equipo($rowPartidoS3["equipo_visitante"], $conn);
+					$equipo_visitante = $equipo_visitante_obj->getNombre();
               	}else{
               		$equipo_visitante = "2do Tercero";
               	}
@@ -157,12 +163,14 @@
               <td width="86" align="center"><?php echo convertString2Date($rowPartidoS4["fecha"],$conn); ?></td>
               <?php
               	if($rowPartidoS4["equipo_locatario"] != 0){
-              		$equipo_locatario = new Equipo($rowPartidoS4["equipo_locatario"], $conn);
+              		$equipo_locatario_obj = new Equipo($rowPartidoS4["equipo_locatario"], $conn);
+              		$equipo_locatario = $equipo_locatario_obj->getNombre();
               	}else{
               		$equipo_locatario = "1ro Grupo C";
               	}
               	if($rowPartidoS4["equipo_visitante"] != 0){
-              		$equipo_visitante = new Equipo($rowPartidoS4["equipo_visitante"], $conn);
+              		$equipo_visitante_obj = new Equipo($rowPartidoS4["equipo_visitante"], $conn);
+					$equipo_visitante = $equipo_visitante_obj->getNombre();
               	}else{
               		$equipo_visitante = "2do Grupo B";
               	}
@@ -188,12 +196,14 @@
               <td width="86" align="center"><?php echo convertString2Date($rowPartidoG1["fecha"],$conn); ?></td>
               <?php
               	if($rowPartidoG1["equipo_locatario"] != 0){
-              		$equipo_locatario = new Equipo($rowPartidoG1["equipo_locatario"], $conn);
+              		$equipo_locatario_obj = new Equipo($rowPartidoG1["equipo_locatario"], $conn);
+					$equipo_locatario = $equipo_locatario_obj->getNombre();
               	}else{
               		$equipo_locatario = "Ganador S1";
               	}
               	if($rowPartidoG1["equipo_visitante"] != 0){
-              		$equipo_visitante = new Equipo($rowPartidoG1["equipo_visitante"], $conn);
+              		$equipo_visitante_obj = new Equipo($rowPartidoG1["equipo_visitante"], $conn);
+					$equipo_visitante = $equipo_visitante_obj->getNombre();
               	}else{
               		$equipo_visitante = "Ganador S2";
               	}
@@ -216,12 +226,14 @@
               <td width="86" align="center"><?php echo convertString2Date($rowPartidoG2["fecha"],$conn); ?></td>
               <?php
               	if($rowPartidoG2["equipo_locatario"] != 0){
-              		$equipo_locatario = new Equipo($rowPartidoG2["equipo_locatario"], $conn);
+              		$equipo_locatario_obj = new Equipo($rowPartidoG2["equipo_locatario"], $conn);
+              		$equipo_locatario = $equipo_locatario_obj->getNombre();
               	}else{
               		$equipo_locatario = "Ganador S3";
               	}
               	if($rowPartidoG2["equipo_visitante"] != 0){
-              		$equipo_visitante = new Equipo($rowPartidoG2["equipo_visitante"], $conn);
+              		$equipo_visitante_obj = new Equipo($rowPartidoG2["equipo_visitante"], $conn);
+					$equipo_visitante = $equipo_visitante_obj->getNombre();
               	}else{
               		$equipo_visitante = "Ganador S4";
               	}
@@ -245,12 +257,14 @@
               <td width="86" align="center"><?php echo convertString2Date($rowPartidoTERCER["fecha"],$conn); ?></td>
               <?php
               	if($rowPartidoTERCER["equipo_locatario"] != 0){
-              		$equipo_locatario = new Equipo($rowPartidoTERCER["equipo_locatario"], $conn);
+              		$equipo_locatario_obj = new Equipo($rowPartidoTERCER["equipo_locatario"], $conn);
+					$equipo_locatario = $equipo_locatario_obj->getNombre();
               	}else{
               		$equipo_locatario = "Ganador S3";
               	}
               	if($rowPartidoTERCER["equipo_visitante"] != 0){
-              		$equipo_visitante = new Equipo($rowPartidoTERCER["equipo_visitante"], $conn);
+              		$equipo_visitante_obj = new Equipo($rowPartidoTERCER["equipo_visitante"], $conn);
+					$equipo_visitante = $equipo_visitante_obj->getNombre();
               	}else{
               		$equipo_visitante = "Ganador S4";
               	}
@@ -274,12 +288,14 @@
               <td width="86" align="center"><?php echo convertString2Date($rowPartidoFINAL["fecha"],$conn); ?></td>
               <?php
               	if($rowPartidoFINAL["equipo_locatario"] != 0){
-              		$equipo_locatario = new Equipo($rowPartidoFINAL["equipo_locatario"], $conn);
+              		$equipo_locatario_obj = new Equipo($rowPartidoFINAL["equipo_locatario"], $conn);
+					$equipo_locatario = $equipo_locatario_obj->getNombre();
               	}else{
               		$equipo_locatario = "Ganador G1";
               	}
               	if($rowPartidoFINAL["equipo_visitante"] != 0){
-              		$equipo_visitante = new Equipo($rowPartidoFINAL["equipo_visitante"], $conn);
+              		$equipo_visitante_obj = new Equipo($rowPartidoFINAL["equipo_visitante"], $conn);
+					$equipo_visitante = $equipo_visitante_obj->getNombre();
               	}else{
               		$equipo_visitante = "Ganador G2";
               	}
