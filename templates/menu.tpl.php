@@ -16,6 +16,7 @@
 		<a href="index.php">FIXTURE</a>
 		<a href="clasificacion_grupos.php">GRUPOS</a>
 		<a href="index.php?res=<?php echo $cod_usuario_fixture;  ?>">MIS PARTIDOS</a>
+		<a href="trans.php">REGLAS</a>
 		<?php if(isset($_SESSION["id_usuario"])){ ?><a href="logout.php">CERRAR SESI&Oacute;N</a><?php } ?>
 	</div>
 </div>

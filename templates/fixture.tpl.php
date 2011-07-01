@@ -1,7 +1,8 @@
 <div id="fixture_menu">    
-        <div class="fixture">	
-            <h2>Grupo A</h2>
-
+        <div class="fixture">
+        	
+     	<h2>Grupo A</h2>
+        
         <table width="500">
             <?php while($rowPartidosA = mysql_fetch_assoc($rsPartidosA)){ ?>
             <tr>
@@ -16,7 +17,7 @@
               <td width="15" align="center">vs</td>
               <td width="15" align="center"><div class="resultado"><?php echo $rowPartidosA["goles_equipo_visitante"]; ?></div></td>
               <td width="74"><?php echo $equipo_visitante->getNombre(); ?></td>
-              <td width="141"><p1><?php echo $estadio->getNombreEstadio(); ?></p1></td>
+              <td width="120" class="letra_cursiva"><?php echo $estadio->getNombreEstadio(); ?></td>
             </tr>
             <?php } ?>
         </table>
@@ -37,7 +38,7 @@
               <td width="15" align="center">vs</td>
               <td width="15" align="center"><div class="resultado"><?php echo $rowPartidosB["goles_equipo_visitante"]; ?></div></td>
               <td width="74"><?php echo $equipo_visitante->getNombre(); ?></td>
-              <td width="141"><p1><?php echo $estadio->getNombreEstadio(); ?></p1></td>
+              <td width="120" class="letra_cursiva"><?php echo $estadio->getNombreEstadio(); ?></td>
             </tr>
             <?php } ?>
         </table>
@@ -58,7 +59,7 @@
               <td width="15" align="center">vs</td>
               <td width="15" align="center"><div class="resultado"><?php echo $rowPartidosC["goles_equipo_visitante"]; ?></div></td>
               <td width="74"><?php echo $equipo_visitante->getNombre(); ?></td>
-              <td width="141"><p1><?php echo $estadio->getNombreEstadio(); ?></p1></td>
+              <td width="120" class="letra_cursiva"><?php echo $estadio->getNombreEstadio(); ?></td>
             </tr>
             <?php } ?>
         </table>
@@ -92,8 +93,8 @@
               <td width="17" align="center">vs</td>
               <td width="17" align="center"><div class="resultado"><?php echo $rowPartidoS1["goles_equipo_visitante"]; ?></div></td>
               <td width="114"><?php echo $equipo_visitante; ?></td>
-              <td width="69"><p1><?php echo $estadio->getNombreEstadio(); ?></p1></td>
-              <td>S1</td>
+              <td width="69" class="letra_cursiva"><?php echo $estadio->getNombreEstadio(); ?></td>
+              <td><em>S1</em></td>
             </tr>
             <?php } ?>
         </table>
@@ -122,8 +123,8 @@
               <td width="17" align="center">vs</td>
               <td width="17" align="center"><div class="resultado"><?php echo $rowPartidoS2["goles_equipo_visitante"]; ?></div></td>
               <td width="114"><?php echo $equipo_visitante; ?></td>
-              <td width="69"><p1><?php echo $estadio->getNombreEstadio(); ?></p1></td>
-              <td>S2</td>
+              <td width="69" class="letra_cursiva"><?php echo $estadio->getNombreEstadio(); ?></td>
+              <td><em>S2</em></td>
             </tr>
             <?php } ?>
         </table>
@@ -152,8 +153,8 @@
               <td width="17" align="center">vs</td>
               <td width="17" align="center"><div class="resultado"><?php echo $rowPartidoS3["goles_equipo_visitante"]; ?></div></td>
               <td width="114"><?php echo $equipo_visitante; ?></td>
-              <td width="69"><p1><?php echo $estadio->getNombreEstadio(); ?></p1></td>
-              <td>S3</td>
+              <td width="69" class="letra_cursiva"><?php echo $estadio->getNombreEstadio(); ?></td>
+              <td><em>S3</em></td>
             </tr>
             <?php } ?>
         </table>
@@ -182,8 +183,8 @@
               <td width="17" align="center">vs</td>
               <td width="17" align="center"><div class="resultado"><?php echo $rowPartidoS4["goles_equipo_visitante"]; ?></div></td>
               <td width="114"><?php echo $equipo_visitante; ?></td>
-              <td width="69"><p1><?php echo $estadio->getNombreEstadio(); ?></p1></td>
-              <td>S4</td>
+              <td width="69" class="letra_cursiva"><?php echo $estadio->getNombreEstadio(); ?></td>
+              <td><em>S4</em></td>
             </tr>
             <?php } ?>
         </table>
@@ -215,8 +216,8 @@
               <td width="17" align="center">vs</td>
               <td width="17" align="center"><div class="resultado"><?php echo $rowPartidoG1["goles_equipo_visitante"]; ?></div></td>
               <td width="114"><?php echo $equipo_visitante; ?></td>
-              <td width="69"><p1><?php echo $estadio->getNombreEstadio(); ?></p1></td>
-              <td>G1</td>
+              <td width="69" class="letra_cursiva"><?php echo $estadio->getNombreEstadio(); ?></td>
+              <td><em>G1</em></td>
             </tr>
             <?php } ?>
         </table>
@@ -245,8 +246,8 @@
               <td width="17" align="center">vs</td>
               <td width="17" align="center"><div class="resultado"><?php echo $rowPartidoG2["goles_equipo_visitante"]; ?></div></td>
               <td width="114"><?php echo $equipo_visitante; ?></td>
-              <td width="69"><p1><?php echo $estadio->getNombreEstadio(); ?></p1></td>
-              <td>G2</td>
+              <td width="69" class="letra_cursiva"><?php echo $estadio->getNombreEstadio(); ?></td>
+              <td><em>G2</em></td>
             </tr>
             <?php } ?>
         </table>
@@ -276,7 +277,7 @@
               <td width="17" align="center">vs</td>
               <td width="17" align="center"><div class="resultado"><?php echo $rowPartidoTERCER["goles_equipo_visitante"]; ?></div></td>
               <td width="114"><?php echo $equipo_visitante; ?></td>
-              <td width="69"><p1><?php echo $estadio->getNombreEstadio(); ?></p1></td>
+              <td width="69" class="letra_cursiva"><?php echo $estadio->getNombreEstadio(); ?></td>
               <td></td>
             </tr>
             <?php } ?>
@@ -307,10 +308,11 @@
               <td width="17" align="center">vs</td>
               <td width="17" align="center"><div class="resultado"><?php echo $rowPartidoFINAL["goles_equipo_visitante"]; ?></div></td>
               <td width="114"><?php echo $equipo_visitante; ?></td>
-              <td width="69"><p1><?php echo $estadio->getNombreEstadio(); ?></p1></td>
+              <td width="84" class="letra_cursiva"><?php echo $estadio->getNombreEstadio(); ?></td>
               <td></td>
             </tr>
             <?php } ?>
         </table>
+        <?php if(isset($_GET["res"]) && $_GET["res"]>0){?><h2 class="puntos">Puntos: <?php echo PuntosUsuario:: CalcularPuntos($_SESSION["id_usuario"], $conn); ?></h2><?php } ?>        	
         </div>
 	</div>

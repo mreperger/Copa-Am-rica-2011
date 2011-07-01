@@ -112,7 +112,7 @@
                         <td><input type="text" name="sign_codigo" /></td>
                     </tr>
                     <tr>
-                    	<td align="right"><a href="terminos.php" taget="_blank"><p1>He leido y acepto los t&eacute;rminos.</p1></a></td>
+                    	<td align="right" class="letra_cursiva"><a href="trans.php" target="_blank"><p1>He leido y acepto los t&eacute;rminos.</p1></a></td>
                     	<td align="left"><input type="checkbox" name="aceptar_terminos" value="yes" /></td>
                     </tr>
                     <tr>

@@ -2,6 +2,7 @@
 <?php require_once("includes/ini.php"); ?>
 <?php require_once("classes/equipo.class.php"); ?>
 <?php require_once("classes/estadio.class.php"); ?>
+<?php require_once("classes/puntos_usuario.class.php"); ?>
 <?php
 	if(isset($_GET["res"])){
 		if($_GET["res"] == 0){

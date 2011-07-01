@@ -94,13 +94,14 @@ a:active {
 	padding-top:10px;
 }
 #pie_pagina a{
-	margin-right:10px;
+	margin-right:3px;
 }
 p{
-	width:468px;
-	margin-top:92px;
+	width:991px;
+	margin-top:10px;
 	margin-left:auto;
 	margin-right:auto;
+	font-size:14px;
 }
 p strong{
 	font-style:italic;
@@ -205,4 +206,8 @@ em{
 	padding:10px 10px 10px 10px;
 	font-weight:bold;
 	background-color:#FADCDC;
+}
+.puntos{
+	color:#F3C65A;
+	font-size:24px;
 }
