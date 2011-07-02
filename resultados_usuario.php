@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php @session_start(); ?>
 <?php require_once("includes/ini.php"); ?>
 <?php require_once("classes/equipo.class.php"); ?>
 <?php require_once("classes/estadio.class.php"); ?>

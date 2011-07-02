@@ -11,6 +11,17 @@
 			header("Location: log_in.php");
 			exit();
 		}else{
+			
+			//Veo si el usuario esta activo
+			$sql_usuario ="SELECT * usuarios WHERE id = '".$_GET["res"]."'";
+			$rsUsuario = mysql_query($sql_usuario, $conn);
+			$rowUsuario = mysql_fetch_assoc($rsUsuario);
+			
+			/*if($rowUsuario["activo"] == 0){
+				header("Location: resultados_usuario.php");
+				exit();	
+			}*/
+			
 			//cargo partidos del usuario
 			$sql_partidosA = "SELECT P.fecha, P.grupo, P.id_estadio, P.estado_partido, P.id, U.id_equipo_locatario as equipo_locatario, U.goles_equipo_locatario, U.id_equipo_visitante as equipo_visitante, U.goles_equipo_visitante FROM partidos as P, partidos_usuarios as U WHERE P.grupo = 'A' AND U.id_usuario = ".$_GET["res"]." AND P.id = U.id_partido ORDER BY P.fecha ASC";
 			$sql_partidosB = "SELECT P.fecha, P.grupo, P.id_estadio, P.estado_partido, P.id, U.id_equipo_locatario as equipo_locatario, U.goles_equipo_locatario, U.id_equipo_visitante as equipo_visitante, U.goles_equipo_visitante FROM partidos as P, partidos_usuarios as U WHERE P.grupo = 'B' AND U.id_usuario = ".$_GET["res"]." AND P.id = U.id_partido ORDER BY P.fecha ASC";

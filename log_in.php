@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php @session_start(); ?>
 <?php require_once("includes/ini.php"); ?>
 <?php
 	unset($_SESSION["id_usuario"]);
@@ -10,7 +10,7 @@
 		$sign_codigo = $_POST["sign_codigo"];
 		$aceptar_terminos = $_POST["aceptar_terminos"];
 		
-		if($aceptar_terminos == "yes"){
+		if(isset($_POST["aceptar_terminos"])){
 			if($mail != "" && $sign_pass != "" && $sign_pass == $sign_pass_verificar && $sign_codigo){
 				//Controlo codigo
 				$sign_codigo = rtrim($sign_codigo);
@@ -18,17 +18,28 @@
 				$cod_magico = md5($mail."COD_AMERICA");
 				
 				if($cod_magico == $sign_codigo){
-					//Inserto en db
-					$sql_insert = "INSERT INTO `usuarios` (`id`, `usuario`, `pass`, `activo`, `tipo`) VALUES (NULL, '".$mail."', '".md5($sign_pass)."', '0', '2');";
-					//echo $sql_insert;
-					mysql_query($sql_insert, $conn) or die(mysql_error());
-					$id_usr = mysql_insert_id();
 					
-					//Cargo var sesion
-					$_SESSION["id_usuario"] = $id_usr;
+					//verifico mail repetido
+					$sql_control = "SELECT * FROM usuarios WHERE usuario = '".$mail."'";
+					$rsUsuarioRep = mysql_query($sql_control, $conn);
+					if($rowUsuarioRep = mysql_fetch_assoc($rsUsuarioRep)){
+						//usuario ya existe
+						$msg_error = "El usuario ya existe";
+					}else{
 					
-					//Mando a ingresar resultados
-					header("Location: resultados_usuario.php");
+						//Inserto en db
+						$sql_insert = "INSERT INTO `usuarios` (`id`, `usuario`, `pass`, `activo`, `tipo`) VALUES (NULL, '".$mail."', '".md5($sign_pass)."', '0', '2');";
+						//echo $sql_insert;
+						mysql_query($sql_insert, $conn) or die(mysql_error());
+						$id_usr = mysql_insert_id();
+						
+						//Cargo var sesion
+						$_SESSION["id_usuario"] = $id_usr;
+						
+						//Mando a ingresar resultados
+						header("Location: resultados_usuario.php");
+						exit();
+					}
 				}else{
 					//Error en codigo
 					$msg_error = "El codigo no es valido";
@@ -52,6 +63,7 @@
 			if($rowUsuario = mysql_fetch_assoc($rsUsuario)){
 				$_SESSION["id_usuario"] = $rowUsuario["id"];
 				header("Location: index.php?res=".$rowUsuario["id"]);
+				exit();
 			}else{
 				$msg_error_login = "Datos incorrectos";
 			}
@@ -69,9 +81,9 @@
 		<div class="menu_usuario">    	
 			<?php if(isset($msg_error_login )){ echo "<div>".$msg_error_login."</div>"; } ?>
             <form name="frm_log_in" action="log_in.php" method="post">
-                <table width="286">
+                <table width="305">
 <tr>
-                        <td align="right" width="20px">Usuario:</td>
+                        <td align="right" width="173px">Correo Electr&oacute;nico:</td>
                         <td><input type="text" name="log_usuario" /></td>
                     </tr>
                     <tr>
@@ -96,7 +108,7 @@
             <form name="frm_sign_in" action="log_in.php" method="post">
                 <table width="420">
 					<tr>
-                        <td align="right" width="200">Correo Electronico:</td>
+                        <td align="right" width="200">Correo Electr&oacute;nico:</td>
             			<td width="198"><input type="text" name="sign_usuario" /></td>
                   	</tr>
                     <tr>
