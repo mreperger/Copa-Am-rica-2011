@@ -13,9 +13,10 @@
 		}else{
 			
 			//Veo si el usuario esta activo
-			$sql_usuario ="SELECT * usuarios WHERE id = '".$_GET["res"]."'";
-			$rsUsuario = mysql_query($sql_usuario, $conn);
+			$sql_usuario ="SELECT * FROM usuarios WHERE id = ".$_GET["res"].";";
+			$rsUsuario = mysql_query($sql_usuario, $conn) or die(mysql_error());
 			$rowUsuario = mysql_fetch_assoc($rsUsuario);
+			
 			
 			/*if($rowUsuario["activo"] == 0){
 				header("Location: resultados_usuario.php");
