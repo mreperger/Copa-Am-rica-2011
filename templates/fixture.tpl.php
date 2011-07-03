@@ -1,4 +1,5 @@
 <div id="fixture_menu">    
+	<?php if(isset($_GET["res"])){ ?><h2>Fixture de <em><?php echo Usuario::getNombreUsuario($_GET["res"],$conn); ?></em></h2><?php } ?>
         <div class="fixture">
         	
      	<h2>Grupo A</h2>
