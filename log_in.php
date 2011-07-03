@@ -101,7 +101,7 @@
             </form>
     	</div>
     </div>
-    <div id="sign_in">
+    <div id="sign_in" style="display:none;">
     	<h2>Registrarse</h2>
 		<div class="menu_usuario">
 			<?php if(isset($msg_error)){ echo "<div>".$msg_error."</div>"; } ?>
