@@ -42,11 +42,11 @@
 						if($rowPartidos["grupo"] == "4"){
 							//calculo puntos GRUPOS
 							//Averiguo quien puso ganador usuario
-							if($rowPartidosUsuario["id_equipo_locatario"] == $rowPartidos["equipo_locatario"]){
+							if($rowPartidosUsuario["id_equipo_locatario"] == $rowPartidos["equipo_locatario"] || $rowPartidosUsuario["id_equipo_locatario"] == $rowPartidos["equipo_visitante"]){
 								$puntos = $puntos + 1;
 								$equipo_local_acierto = 1;
 							}
-							if($rowPartidosUsuario["id_equipo_visitante"] == $rowPartidos["equipo_visitante"]){
+							if($rowPartidosUsuario["id_equipo_visitante"] == $rowPartidos["equipo_visitante"] || $rowPartidosUsuario["id_equipo_visitante"] == $rowPartidos["equipo_locatario"]){
 								$puntos = $puntos + 1;
 								$equipo_visitante_acierto = 1;
 							}
@@ -56,11 +56,11 @@
 							}
 						}else{
 							if($rowPartidos["grupo"] == "3"){
-								if($rowPartidosUsuario["id_equipo_locatario"] == $rowPartidos["equipo_locatario"]){
+								if($rowPartidosUsuario["id_equipo_locatario"] == $rowPartidos["equipo_locatario"] || $rowPartidosUsuario["id_equipo_locatario"] == $rowPartidos["equipo_visitante"]){
 									$puntos = $puntos + 2;
 									$equipo_local_acierto = 1;
 								}
-								if($rowPartidosUsuario["id_equipo_visitante"] == $rowPartidos["equipo_visitante"]){
+								if($rowPartidosUsuario["id_equipo_visitante"] == $rowPartidos["equipo_visitante"] || $rowPartidosUsuario["id_equipo_visitante"] == $rowPartidos["equipo_locatario"]){
 									$puntos = $puntos + 2;
 									$equipo_visitante_acierto = 1;
 								}
@@ -70,11 +70,11 @@
 								}
 							}else{
 								if($rowPartidos["grupo"] == "2"){
-									if($rowPartidosUsuario["id_equipo_locatario"] == $rowPartidos["equipo_locatario"]){
+									if($rowPartidosUsuario["id_equipo_locatario"] == $rowPartidos["equipo_locatario"] || $rowPartidosUsuario["id_equipo_locatario"] == $rowPartidos["equipo_visitante"]){
 										$puntos = $puntos + 3;
 										$equipo_local_acierto = 1;
 									}
-									if($rowPartidosUsuario["id_equipo_visitante"] == $rowPartidos["equipo_visitante"]){
+									if($rowPartidosUsuario["id_equipo_visitante"] == $rowPartidos["equipo_visitante"] || $rowPartidosUsuario["id_equipo_visitante"] == $rowPartidos["equipo_locatario"]){
 										$puntos = $puntos + 3;
 										$equipo_visitante_acierto = 1;
 									}
@@ -84,11 +84,11 @@
 									}
 								}else{
 									if($rowPartidos["grupo"] == "1"){
-										if($rowPartidosUsuario["id_equipo_locatario"] == $rowPartidos["equipo_locatario"]){
+										if($rowPartidosUsuario["id_equipo_locatario"] == $rowPartidos["equipo_locatario"] || $rowPartidosUsuario["id_equipo_locatario"] == $rowPartidos["equipo_visitante"]){
 											$puntos = $puntos + 4;
 											$equipo_local_acierto = 1;
 										}
-										if($rowPartidosUsuario["id_equipo_visitante"] == $rowPartidos["equipo_visitante"]){
+										if($rowPartidosUsuario["id_equipo_visitante"] == $rowPartidos["equipo_visitante"] || $rowPartidosUsuario["id_equipo_visitante"] == $rowPartidos["equipo_locatario"]){
 											$puntos = $puntos + 4;
 											$equipo_visitante_acierto = 1;
 										}
