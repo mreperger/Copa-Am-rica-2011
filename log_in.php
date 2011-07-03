@@ -62,7 +62,11 @@
 			$rsUsuario = mysql_query($sql_usr, $conn) or die(mysql_error());
 			if($rowUsuario = mysql_fetch_assoc($rsUsuario)){
 				$_SESSION["id_usuario"] = $rowUsuario["id"];
-				header("Location: index.php?res=".$rowUsuario["id"]);
+				if(isset($_SESSION["url_back"])){
+					header("Location: ".$_SESSION["url_back"]);
+				}else{
+					header("Location: index.php?res=".$rowUsuario["id"]);
+				}
 				exit();
 			}else{
 				$msg_error_login = "Datos incorrectos";
@@ -76,8 +80,14 @@
 <?php include("templates/html_head.tpl.php"); ?>
 <?php include("templates/menu.tpl.php"); ?>
     <div id="log_in">
-    	
+    	<?php
+    		if(isset($_SESSION["log_message"])){
+    			echo "<div>".$_SESSION["log_message"]."</div>";
+    			unset($_SESSION["log_message"]);
+    		}
+    	?>
     	<h2>Ingresar</h2>
+    	
 		<div class="menu_usuario">    	
 			<?php if(isset($msg_error_login )){ echo "<div>".$msg_error_login."</div>"; } ?>
             <form name="frm_log_in" action="log_in.php" method="post">

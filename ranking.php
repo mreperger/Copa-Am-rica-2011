@@ -5,8 +5,14 @@
 <?php require_once("classes/usuarios.class.php"); ?>
 <?php
 
-	$usuarios_ranking = new Usuarios($conn,2,1);
-	
+	if(!isset($_SESSION["id_usuario"])){
+		$_SESSION["url_back"] = "ranking.php";
+		$_SESSION["log_message"] = "Para ver el Ranking debe de ingresar";
+		header("Location: log_in.php");
+		exit();
+	}else{
+		$usuarios_ranking = new Usuarios($conn,2,1);
+	}
 ?>
 <?php include("templates/html_head.tpl.php"); ?>
 <?php include("templates/menu.tpl.php"); ?>
