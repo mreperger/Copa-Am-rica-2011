@@ -313,6 +313,6 @@
             </tr>
             <?php } ?>
         </table>
-        <?php if(isset($_GET["res"]) && $_GET["res"]>0){?><h2 class="puntos">Puntos: <?php echo PuntosUsuario:: CalcularPuntos($_SESSION["id_usuario"], $conn); ?></h2><?php } ?>        	
+        <?php if(isset($_GET["res"]) && $_GET["res"]>0){?><h2 class="puntos">Puntos: <?php echo PuntosUsuario:: CalcularPuntos($_GET["res"], $conn); ?></h2><?php } ?>        	
         </div>
 	</div>
