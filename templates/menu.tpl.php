@@ -12,6 +12,7 @@
 		<img src="logos/ca2011.png" />
 	</div>
 	<h1><strong>COPA AMERICA ARGENTINA</strong> 2011</h1>
+	<div class="small_res"><?php if(isset($_SESSION["id_usuario"]) && $_SESSION["tipo"] == 1){ ?><a href="fixture_admin.php">ACUTALIZAR RESULTADOS</a><?php } ?></div>
 	<div id="menu">
 		<a href="index.php">FIXTURE</a>
 		<a href="clasificacion_grupos.php">GRUPOS</a>
