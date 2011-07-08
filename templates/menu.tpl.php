@@ -19,6 +19,6 @@
 		<a href="index.php?res=<?php echo $cod_usuario_fixture;  ?>">MIS PARTIDOS</a>
 		<a href="trans.php">REGLAS</a>
 		<a href="ranking.php">RANKING</a>
-		<?php if(isset($_SESSION["id_usuario"])){ ?><a href="logout.php" class="small_menu"><?php echo $usuario_global->getUsuario(); ?> [CERRAR SESI&Oacute;N]</a><?php } ?>
+		<?php if(isset($_SESSION["id_usuario"])){ ?><a href="logout.php" class="small_menu"><?php echo strtoupper($usuario_global->getNombre()); ?> [CERRAR SESI&Oacute;N]</a><?php } ?>
 	</div>
 </div>
