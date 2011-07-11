@@ -3,10 +3,13 @@
 <?php require_once("classes/equipo.class.php"); ?>
 <?php require_once("classes/estadio.class.php"); ?>
 <?php if(!isset($_SESSION["id_usuario"])){
+			$_SESSION["url_back"] = "resultados_usuario.php";
+			$_SESSION["log_message"] = "Debe ingresar para ingresar sus resultados";
 			header("Location: log_in.php");
 			exit();
 	  }else{
 	  	if($_SESSION["activo"] == 1){
+	  		$_SESSION["log_message"] = "Usted ya ingrs&oacute; sus resultados";
 	  		header("Location: index.php");
 			exit();
 	  	}

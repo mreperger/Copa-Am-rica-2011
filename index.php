@@ -69,6 +69,13 @@
 <?php include("templates/html_head.tpl.php"); ?>
 <?php include("templates/menu.tpl.php"); ?>
 
+<?php
+	if(isset($_SESSION["log_message"])){
+		echo "<div>".$_SESSION["log_message"]."</div>";
+		unset($_SESSION["log_message"]);
+	}
+?>
+
 <?php include("templates/fixture.tpl.php"); ?>
 
 <?php include("templates/footer_logos.tpl.php"); ?>
