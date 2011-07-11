@@ -63,6 +63,7 @@
 			if($rowUsuario = mysql_fetch_assoc($rsUsuario)){
 				$_SESSION["id_usuario"] = $rowUsuario["id"];
 				$_SESSION["tipo"] = $rowUsuario["tipo"];
+				$_SESSION["activo"] = $rowUsuario["activo"];
 				if(isset($_SESSION["url_back"])){
 					header("Location: ".$_SESSION["url_back"]);
 				}else{

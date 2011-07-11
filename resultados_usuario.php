@@ -2,7 +2,16 @@
 <?php require_once("includes/ini.php"); ?>
 <?php require_once("classes/equipo.class.php"); ?>
 <?php require_once("classes/estadio.class.php"); ?>
-<?php if(!isset($_SESSION["id_usuario"])){ header("Location: log_in.php"); } ?>
+<?php if(!isset($_SESSION["id_usuario"])){
+			header("Location: log_in.php");
+			exit();
+	  }else{
+	  	if($_SESSION["activo"] == 1){
+	  		header("Location: index.php");
+			exit();
+	  	}
+	  }
+?>
 <?php
 
 	if(isset($_POST["btn_resultado_usuario"])){
