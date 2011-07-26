@@ -18,7 +18,7 @@
 				$this->nombre = $rowUsuarioLoc["nombre"];
 				$this->tipo = $rowUsuarioLoc["tipo"];
 				$this->pass = $rowUsuarioLoc["pass"];
-				$this->activo = $rowUsuarioLoc["activo"]; 
+				$this->activo = $rowUsuarioLoc["activo"];
 			}
 		}
 		
